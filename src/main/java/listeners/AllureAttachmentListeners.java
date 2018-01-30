@@ -9,14 +9,14 @@ import ru.yandex.qatools.allure.annotations.Attachment;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class AllureAttachmentListeners extends TestListenerAdapter{
+public class AllureAttachmentListeners extends TestListenerAdapter {
 
     @Attachment
-    public byte[] makeScreenshot(){
+    public byte[] makeScreenshot() {
         byte[] array = {1};
         try {
-            return ((TakesScreenshot)getWebDriver()).getScreenshotAs(OutputType.BYTES);
-        } catch (WebDriverException e){
+            return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+        } catch (WebDriverException e) {
             e.printStackTrace();
         }
         return array;

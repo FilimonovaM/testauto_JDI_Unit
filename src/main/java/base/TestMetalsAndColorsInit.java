@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeSuite;
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 
 
-public class TestMetalsAndColorsInit extends TestNGBase{
+public class TestMetalsAndColorsInit extends TestNGBase {
     @BeforeSuite(alwaysRun = true)
     public static void setUp() {
         WebSite.init(SameElementsOfSite.class);

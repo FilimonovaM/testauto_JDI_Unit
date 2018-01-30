@@ -25,7 +25,7 @@ public class IndexPage extends WebPage {
     }
 
     @Step
-    public void clickTheMenuButton(Button button){
+    public void clickTheMenuButton(Button button) {
         button.click();
     }
 }

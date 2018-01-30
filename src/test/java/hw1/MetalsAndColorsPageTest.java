@@ -8,7 +8,8 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
-import static base.SameElementsOfSite.*;
+import static base.SameElementsOfSite.indexPage;
+import static base.SameElementsOfSite.login;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
@@ -16,7 +17,7 @@ import static base.SameElementsOfSite.*;
 public class MetalsAndColorsPageTest extends TestMetalsAndColorsInit {
 
     @BeforeClass
-    public void openPage(){
+    public void openPage() {
         indexPage.open();
     }
 

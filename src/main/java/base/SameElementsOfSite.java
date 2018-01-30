@@ -10,7 +10,7 @@ import page_objects.page_sections.LoginForm;
 import ru.yandex.qatools.allure.annotations.Step;
 
 @JSite("https://jdi-framework.github.io/tests/")
-public class SameElementsOfSite extends WebSite{
+public class SameElementsOfSite extends WebSite {
     public static IndexPage indexPage;
     public static LoginForm loginForm;
 
@@ -19,7 +19,7 @@ public class SameElementsOfSite extends WebSite{
 
 
     @Step
-    public static void login(){
+    public static void login() {
         profilePhoto.click();
         loginForm.loginAs(new User());
     }
