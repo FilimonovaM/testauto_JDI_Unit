@@ -17,7 +17,6 @@ public class SameElementsOfSite extends WebSite {
     @Css(".profile-photo")
     public static Label profilePhoto;
 
-
     @Step
     public static void login() {
         profilePhoto.click();

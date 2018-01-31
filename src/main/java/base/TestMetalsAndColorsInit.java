@@ -9,7 +9,7 @@ import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 
 public class TestMetalsAndColorsInit extends TestNGBase {
     @BeforeSuite(alwaysRun = true)
-    public static void setUp() {
+    public static void setUp() throws Exception{
         WebSite.init(SameElementsOfSite.class);
         logger.info("Run Tests");
     }
