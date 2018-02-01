@@ -1,23 +1,30 @@
 package hw1;
 
-import base.TestMetalsAndColorsInit;
+import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
+import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import page_objects.JDIFrameworkSite;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
-import static base.SameElementsOfSite.indexPage;
-import static base.SameElementsOfSite.login;
+import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
+import static page_objects.JDIFrameworkSite.indexPage;
+import static page_objects.JDIFrameworkSite.login;
+import static page_objects.JDIFrameworkSite.metalsAndColorsPage;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
 @Stories({"check \"Metals & Colors page functionality\""})
-public class MetalsAndColorsPageTest extends TestMetalsAndColorsInit {
+public class MetalsAndColorsPageTest extends TestNGBase {
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void openPage() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        WebSite.init(JDIFrameworkSite.class);
+        logger.info("Run Tests");
         indexPage.open();
     }
 
@@ -26,13 +33,14 @@ public class MetalsAndColorsPageTest extends TestMetalsAndColorsInit {
 
 // Login on JDI site as User	user:Piter_Chailovskii	Piter_Chailovskii is logged in
         login();
-        indexPage.checkUserName();
+        indexPage.headerSection.checkUserName();
 
 // Open Metals & Colors page by Header menu		Metals & Colors page is opened
-        indexPage.clickTheMenuButton(indexPage.metalsAndColorsButton);
-//        clickTheMenuButton(metalsAndColorsButton);
+        indexPage.headerSection.clickMetalsAndColorButton();
+        metalsAndColorsPage.checkOpened();
 
 // Fill form Metals & Colors by data below:	" Summary: 3, 8
+        metalsAndColorsPage.checkForms();
 // Elements: Water, Fire
 // Colors: Red
 // Metals: Selen
