@@ -6,9 +6,9 @@ public enum EvenDigitsEnum {
     SIX("6"),
     EIGHT("8");
 
-    public final String VALUE;
+    public final String text;
 
-    EvenDigitsEnum(String value) {
-        this.VALUE = value;
+    EvenDigitsEnum(String text) {
+        this.text = text;
     }
 }

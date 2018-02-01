@@ -6,9 +6,9 @@ public enum OddsDigitsEnum {
     FIVE("5"),
     SEVEN("7");
 
-    public final String VALUE;
+    public final String text;
 
-    OddsDigitsEnum(String value) {
-        this.VALUE = value;
-    }
+    OddsDigitsEnum(String text) {
+        this.text = text;
+}
 }

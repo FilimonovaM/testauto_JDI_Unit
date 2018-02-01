@@ -2,6 +2,7 @@ package hw1;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import enums.ElementsEnum;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -11,9 +12,7 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static page_objects.JDIFrameworkSite.indexPage;
-import static page_objects.JDIFrameworkSite.login;
-import static page_objects.JDIFrameworkSite.metalsAndColorsPage;
+import static page_objects.JDIFrameworkSite.*;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
@@ -40,10 +39,14 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         metalsAndColorsPage.checkOpened();
 
 // Fill form Metals & Colors by data below:	" Summary: 3, 8
-        metalsAndColorsPage.checkForms();
-// Elements: Water, Fire
-// Colors: Red
-// Metals: Selen
+        // Elements: Water, Fire
+        // Colors: Red
+        // Metals: Selen
+        metalsAndColorsPage.summarySection.checkCalculationForm();
+        metalsAndColorsPage.elementsSection.checkElementsSelection(ElementsEnum.WATER, ElementsEnum.FIRE);
+        metalsAndColorsPage.metalColorSection.checkDropdowns();
+
+
 // Vegetables: Cucumber,Tomato
 // Submit form Metals & Colors"	Form Metals & Colors form is filled
 // Submit form Metals & Colors		Form Metals & Colors was submitted
