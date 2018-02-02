@@ -43,7 +43,7 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         // Colors: Red
         // Metals: Selen
         metalsAndColorsPage.summarySection.checkCalculationForm();
-        metalsAndColorsPage.metalColorSection.checkDropdowns(ElementsEnum.WATER, ElementsEnum.FIRE);
+        metalsAndColorsPage.metalColorSection.checkMetalColorSection(ElementsEnum.WATER, ElementsEnum.FIRE);
 
 
 // Vegetables: Cucumber,Tomato

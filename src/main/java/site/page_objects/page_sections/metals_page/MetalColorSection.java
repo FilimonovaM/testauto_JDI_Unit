@@ -9,8 +9,8 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class MetalColorSection extends Section {
     MetalColorForm metalColorForm = new MetalColorForm();
     @Step
-    public void checkDropdowns(ElementsEnum ... elements){
-        metalColorForm.checkElementsDropdown(elements);
+    public void checkMetalColorSection(ElementsEnum ... elements){
+        metalColorForm.checkElementsChecklist(elements);
 //        metalColorForm.checkMetalsDropdown();
         metalColorForm.submit(new MetalColorFormData());
     }
