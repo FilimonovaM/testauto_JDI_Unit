@@ -1,7 +1,6 @@
 package enums;
 
 public enum ColorsEnum {
-
     RED("Red"),
     GREEN("Green"),
     BLUE("Blue"),

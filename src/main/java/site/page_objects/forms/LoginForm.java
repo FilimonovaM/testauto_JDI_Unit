@@ -8,6 +8,7 @@ import entities.User;
 
 
 public class LoginForm extends Form<User> {
+
     @Css("#Login")
     public TextField name;
 
