@@ -2,7 +2,6 @@ package hw1;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
-import enums.ElementsEnum;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -42,16 +41,13 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         // Elements: Water, Fire
         // Colors: Red
         // Metals: Selen
-        metalsAndColorsPage.summarySection.checkCalculationForm();
-        metalsAndColorsPage.metalColorSection.checkMetalColorSection(ElementsEnum.WATER, ElementsEnum.FIRE);
-
-
-// Vegetables: Cucumber,Tomato
+        // Vegetables: Cucumber,Tomato
 // Submit form Metals & Colors"	Form Metals & Colors form is filled
-// Submit form Metals & Colors		Form Metals & Colors was submitted
-// Result sections should contains data  below:	" Summary: 11
-
-
+// Submit form Metals & Colors
+        // Result sections should contains data
+        metalsAndColorsPage.summarySection.checkCalculationForm();
+        metalsAndColorsPage.metalColorSection.checkMetalColorSection();
+// Summary: 11
 // Elements: Water, Fire
 // Color: Red
 // Metal: Selen
