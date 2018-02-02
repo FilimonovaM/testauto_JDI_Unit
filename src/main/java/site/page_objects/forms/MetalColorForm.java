@@ -9,6 +9,7 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.object
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
 import entities.MetalColorFormData;
 import enums.ElementsEnum;
+import enums.MetalsEnum;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -23,15 +24,31 @@ public class MetalColorForm extends Form<MetalColorFormData>{
     )
     public Dropdown colorDropdown;
 
+    @FindBy(css = "")
+    public Dropdown metalDropdown;
+
+    public Dropdown vegetables;
+
     @FindBy(css = "button#submit-button")
     public Button submit;
 
 
     @Step
-    public void checkElementsSelection(ElementsEnum... elementsEnum) {
+    public void checkElementsDropdown(ElementsEnum... elementsEnum) {
         elements.check(elementsEnum);
         for(ElementsEnum element : elementsEnum){
             elements.isSelected(element.text);
         }
     }
+
+    @Step
+    public void checkMetalsDropdown(){
+        metalDropdown.select(MetalsEnum.SELEN.text);
+    }
+
+    @Step
+    public void checkVegetablesDropdown(){
+
+    }
+
 }

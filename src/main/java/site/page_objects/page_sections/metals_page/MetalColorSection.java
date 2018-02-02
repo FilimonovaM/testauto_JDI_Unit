@@ -10,7 +10,8 @@ public class MetalColorSection extends Section {
     MetalColorForm metalColorForm = new MetalColorForm();
     @Step
     public void checkDropdowns(ElementsEnum ... elements){
-        metalColorForm.checkElementsSelection(elements);
+        metalColorForm.checkElementsDropdown(elements);
+//        metalColorForm.checkMetalsDropdown();
         metalColorForm.submit(new MetalColorFormData());
     }
 }
