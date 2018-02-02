@@ -7,6 +7,7 @@ public enum VegetablesEnum {
     ONION("Onion");
 
     public String text;
+
     VegetablesEnum(String text) {
         this.text = text;
     }

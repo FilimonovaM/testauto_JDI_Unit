@@ -16,9 +16,9 @@ public class OperationsWithData {
     }
 
     static public int summary(int... digits) {
-        int sum=0;
-        for (int i : digits){
-            sum+=i;
+        int sum = 0;
+        for (int i : digits) {
+            sum += i;
         }
         return sum;
     }

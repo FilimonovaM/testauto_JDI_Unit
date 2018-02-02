@@ -4,17 +4,11 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import entities.SummaryFormData;
 import site.page_objects.forms.SummaryForm;
 
-public class SummarySection extends Section{
+public class SummarySection extends Section {
 
-  SummaryForm summaryForm = new SummaryForm();
-  public void checkCalculationForm(){
-      summaryForm.login(new SummaryFormData());
-  }
+    SummaryForm summaryForm = new SummaryForm();
 
-//    @Step
-//    public void checkCalculationForm(OddsDigitsEnum oddsDigit, EvenDigitsEnum evenDigit){
-//        oddsRadioButtons.select(oddsDigit.text);
-//        evenRadioButtons.select(evenDigit.text);
-//        calculatingButton.click();
-//    }
+    public void checkCalculationForm() {
+        summaryForm.login(new SummaryFormData());
+    }
 }

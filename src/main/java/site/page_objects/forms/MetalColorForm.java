@@ -49,8 +49,8 @@ public class MetalColorForm extends Form<MetalColorFormData> {
     public void checkVegetablesDropdown() {
         checkedVegetables.click();
         if (!checkedVegetables.getText().equals("")) {
-            String [] arr = checkedVegetables.getText().split(", ");
-            for(String s:arr){
+            String[] arr = checkedVegetables.getText().split(", ");
+            for (String s : arr) {
                 vegetables.check(s);
             }
         }

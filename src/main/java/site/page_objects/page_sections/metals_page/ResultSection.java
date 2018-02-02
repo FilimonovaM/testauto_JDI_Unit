@@ -13,11 +13,11 @@ public class ResultSection extends Section {
     public TextList resultList;
 
     @Step
-    public void checkResultSet(){
+    public void checkResultSet() {
         ResultListData result = new ResultListData();
         String logOfSection = resultList.getValue();
-        for(String line : result.results){
-            if(!logOfSection.contains(line)){
+        for (String line : result.results) {
+            if (!logOfSection.contains(line)) {
                 Assert.assertEquals("", line);
             }
         }

@@ -10,5 +10,5 @@ public enum OddsDigitsEnum {
 
     OddsDigitsEnum(String text) {
         this.text = text;
-}
+    }
 }

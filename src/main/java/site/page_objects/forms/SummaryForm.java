@@ -8,6 +8,7 @@ import entities.SummaryFormData;
 import org.openqa.selenium.support.FindBy;
 
 public class SummaryForm extends Form<SummaryFormData> {
+
     @FindBy(css = "#odds-selector label")
     public RadioButtons oddsRadioButtons;
 

@@ -7,7 +7,8 @@ import enums.IndexPageEnum;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
-public class HeaderSection extends Section{
+public class HeaderSection extends Section {
+
     @FindBy(css = ".profile-photo>span")
     public Button userName;
 
