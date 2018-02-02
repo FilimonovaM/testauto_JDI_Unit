@@ -1,4 +1,4 @@
-package page_objects.forms;
+package site.page_objects.forms;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.RadioButtons;

@@ -1,8 +1,8 @@
-package page_objects.page_sections.metals_page;
+package site.page_objects.page_sections.metals_page;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import entities.SummaryFormData;
-import page_objects.forms.SummaryForm;
+import site.page_objects.forms.SummaryForm;
 
 public class SummarySection extends Section{
 

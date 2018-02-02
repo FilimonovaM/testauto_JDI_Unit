@@ -1,4 +1,4 @@
-package page_objects.page_sections.metals_page;
+package site.page_objects.page_sections.metals_page;
 
 import com.epam.jdi.uitests.web.selenium.elements.complex.CheckList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
@@ -13,5 +13,8 @@ public class ElementsSection extends Section {
     @Step
     public void checkElementsSelection(ElementsEnum ... elementsEnum) {
         elements.check(elementsEnum);
+        for(ElementsEnum element : elementsEnum){
+            elements.isSelected(element.text);
+        }
     }
 }

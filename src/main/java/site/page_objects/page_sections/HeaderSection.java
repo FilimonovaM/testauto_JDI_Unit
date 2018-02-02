@@ -1,4 +1,4 @@
-package page_objects.page_sections;
+package site.page_objects.page_sections;
 
 import com.codeborne.selenide.Condition;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;

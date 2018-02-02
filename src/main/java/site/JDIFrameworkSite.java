@@ -1,13 +1,13 @@
-package page_objects;
+package site;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
 import entities.User;
-import page_objects.forms.LoginForm;
-import page_objects.pages.IndexPage;
-import page_objects.pages.MetalsAndColorsPage;
+import site.page_objects.forms.LoginForm;
+import site.page_objects.pages.IndexPage;
+import site.page_objects.pages.MetalsAndColorsPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
 @JSite("https://jdi-framework.github.io/tests/")

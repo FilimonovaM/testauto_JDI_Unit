@@ -7,12 +7,12 @@ import listeners.AllureAttachmentListeners;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import page_objects.JDIFrameworkSite;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
+import site.JDIFrameworkSite;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static page_objects.JDIFrameworkSite.*;
+import static site.JDIFrameworkSite.*;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})

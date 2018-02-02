@@ -1,4 +1,4 @@
-package page_objects.forms;
+package site.page_objects.forms;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Dropdown;
@@ -9,6 +9,7 @@ import entities.MetalColorFormData;
 import org.openqa.selenium.support.FindBy;
 
 public class MetalColorForm extends Form<MetalColorFormData>{
+
     @JDropdown(jroot = @JFindBy(css = ".colors"),
             jlist = @JFindBy(css = "li"),
             jvalue = @JFindBy(css = ".filter-option")
