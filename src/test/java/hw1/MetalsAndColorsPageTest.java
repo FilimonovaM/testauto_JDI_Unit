@@ -3,6 +3,7 @@ package hw1;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import listeners.AllureAttachmentListeners;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -10,6 +11,7 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
 
+import static com.codeborne.selenide.Selenide.close;
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 import static site.JDIFrameworkSite.*;
 
@@ -19,11 +21,16 @@ import static site.JDIFrameworkSite.*;
 public class MetalsAndColorsPageTest extends TestNGBase {
 
     @BeforeClass(alwaysRun = true)
-    public void openPage() {
+    public void setup() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebSite.init(JDIFrameworkSite.class);
         logger.info("Run Tests");
         indexPage.open();
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void teardown() {
+        close();
     }
 
     @Test
@@ -44,7 +51,6 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         // Vegetables: Cucumber,Tomato
 // Submit form Metals & Colors"	Form Metals & Colors form is filled
 // Submit form Metals & Colors
-        // Result sections should contains data
         metalsAndColorsPage.summarySection.checkCalculationForm();
         metalsAndColorsPage.metalColorSection.checkMetalColorSection();
 // Summary: 11
@@ -53,5 +59,6 @@ public class MetalsAndColorsPageTest extends TestNGBase {
 // Metal: Selen
 // Vegetables: Cucumber, Tomato"
 // Result section contains certain data
+        metalsAndColorsPage.resultSection.checkResultSet();
     }
 }
