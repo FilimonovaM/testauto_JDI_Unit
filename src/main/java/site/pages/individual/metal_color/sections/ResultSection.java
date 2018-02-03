@@ -14,7 +14,6 @@ public class ResultSection extends Section {
 
     @Step
     public void checkResultSet() {
-
         String logOfSection = resultList.getValue();
         for (String line : result.results) {
             if (!logOfSection.contains(line)) {
