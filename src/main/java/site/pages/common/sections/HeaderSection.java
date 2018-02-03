@@ -1,4 +1,4 @@
-package site.page_objects.pages.common.sections;
+package site.pages.common.sections;
 
 import com.codeborne.selenide.Condition;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
@@ -8,7 +8,7 @@ import entities.User;
 import enums.IndexPageEnum;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
-import site.page_objects.pages.common.forms.LoginForm;
+import site.pages.common.forms.LoginForm;
 
 public class HeaderSection extends Section{
 

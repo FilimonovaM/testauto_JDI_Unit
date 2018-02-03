@@ -1,4 +1,4 @@
-package site.page_objects.pages.common.forms;
+package site.pages.common.forms;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.TextField;
