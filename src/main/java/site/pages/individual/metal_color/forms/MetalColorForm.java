@@ -10,7 +10,6 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindB
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
 import entities.MetalColorFormData;
-import enums.ElementsEnum;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -37,11 +36,18 @@ public class MetalColorForm extends Form<MetalColorFormData> {
     @FindBy(css = "button#submit-button")
     private Button submit;
 
+    public SummaryForm summaryForm;
+
     @Step
-    public void checkElementsChecklist(ElementsEnum... elementsEnum) {
-        elements.check(MetalColorFormData.elements);
-        for (ElementsEnum element : elementsEnum) {
-            elements.isSelected(element.text);
+    public void checkSummaryForm(MetalColorFormData metalColorFormData){
+        summaryForm.submit(metalColorFormData);
+    }
+
+    @Step
+    public void checkElementsChecklist(String... elementString) {
+        elements.check(elementString);
+        for (String element : elementString) {
+            elements.isSelected(element);
         }
     }
 
@@ -49,9 +55,9 @@ public class MetalColorForm extends Form<MetalColorFormData> {
     public void checkVegetablesDropdown() {
         checkedVegetables.click();
         if (!checkedVegetables.getText().equals("")) {
-            String[] arr = checkedVegetables.getText().split(", ");
-            for (String s : arr) {
-                vegetables.check(s);
+            String[] chosenVegetables = checkedVegetables.getText().split(", ");
+            for (String vegetable : chosenVegetables) {
+                vegetables.check(vegetable);
             }
         }
         vegetables.check(MetalColorFormData.vegetables);

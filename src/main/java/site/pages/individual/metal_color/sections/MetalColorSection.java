@@ -7,11 +7,14 @@ import site.pages.individual.metal_color.forms.MetalColorForm;
 
 public class MetalColorSection extends Section {
     MetalColorForm metalColorForm;
+    MetalColorFormData metalColorFormData;
 
     @Step
     public void checkMetalColorSection() {
+        metalColorFormData = new MetalColorFormData();
+        metalColorForm.checkSummaryForm(metalColorFormData);
         metalColorForm.checkElementsChecklist();
         metalColorForm.checkVegetablesDropdown();
-        metalColorForm.submit(new MetalColorFormData());
+        metalColorForm.submit(metalColorFormData);
     }
 }
