@@ -2,6 +2,7 @@ package entities;
 
 import com.epam.commons.DataClass;
 import enums.*;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 public class MetalColorFormData extends DataClass {
     public String oddsRadioButton = OddsDigitsEnum.THREE.text;
@@ -11,8 +12,7 @@ public class MetalColorFormData extends DataClass {
     public String[] elements = {ElementsEnum.WATER.text, ElementsEnum.FIRE.text};
     public String[] vegetables = {VegetablesEnum.CUCUMBER.text, VegetablesEnum.TOMATO.text};
 
-//    @Step
-//    @Stories("Data Updating from \'ex8_jdi_metalsColorsDataSet .json\'")
+    @Stories("Data Updating from \'ex8_jdi_metalsColorsDataSet .json\'")
     public void upDateData(String oddsRadioButton, String evenRadioButton, String colorDropdown, String metalDropdown,
                            String[] elements, String[] vegetables){
         setOddsRadioButton(oddsRadioButton);
