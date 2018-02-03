@@ -13,8 +13,8 @@ public class MetalColorSection extends Section {
     public void checkMetalColorSection() {
         metalColorFormData = new MetalColorFormData();
         metalColorForm.checkSummaryForm(metalColorFormData);
-        metalColorForm.checkElementsChecklist();
-        metalColorForm.checkVegetablesDropdown();
+        metalColorForm.checkElementsChecklist(metalColorFormData);
+        metalColorForm.checkVegetablesDropdown(metalColorFormData);
         metalColorForm.submit(metalColorFormData);
     }
 }

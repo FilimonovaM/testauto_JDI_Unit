@@ -3,6 +3,7 @@ package hw1;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import entities.MetalColorFormData;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

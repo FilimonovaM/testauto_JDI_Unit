@@ -8,13 +8,13 @@ import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
 
 public class ResultSection extends Section {
-
+    ResultListData result = new ResultListData();
     @FindBy(css = ".results li")
     private TextList resultList;
 
     @Step
     public void checkResultSet() {
-        ResultListData result = new ResultListData();
+
         String logOfSection = resultList.getValue();
         for (String line : result.results) {
             if (!logOfSection.contains(line)) {
