@@ -14,12 +14,6 @@ public class ResultListData extends MetalColorFormData implements IResults {
     private String resultOfCalculation = intToString(summary(
             new int[]{stringToInt(oddsRadioButton), stringToInt(evenRadioButton)}));
 
-//    private String calculationResult =
-//    private String elementsResult = ;
-//    private String colorResult =
-//    private String metalResult = ;
-//    private String vegetablesResult = ;
-
     public String[] results = {
             getLog("Summary: ", resultOfCalculation),
             getLog("Elements: ", elements),
