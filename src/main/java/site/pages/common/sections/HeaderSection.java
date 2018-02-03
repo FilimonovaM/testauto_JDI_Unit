@@ -23,6 +23,8 @@ public class HeaderSection extends Section{
 
     private LoginForm loginForm;
 
+    // TODO OH MY, login method shout be parametrized by User.class
+    // TODO this method should perform LOGIN action ONLY !! Regardless that what kind of page has opened...
     @Step
     public void login(boolean isIndexPage) {
         if (userName.getText().equals("") && isIndexPage) {

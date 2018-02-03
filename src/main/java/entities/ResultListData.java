@@ -5,6 +5,8 @@ import enums.*;
 
 import static utils.OperationsWithData.*;
 
+// TODO NO NO NO NO, take a look on you last presentation !!
+// TODO specially on User.class and LoginForm, feel the difference between that idea and yours..
 public class ResultListData extends DataClass {
     private String calculationResult = String.format("%s%s", "Summary: ", intToString(summary(
             new int[]{stringToInt(OddsDigitsEnum.THREE.text), stringToInt(EvenDigitsEnum.EIGHT.text)})));
