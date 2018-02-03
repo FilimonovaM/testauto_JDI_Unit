@@ -7,7 +7,7 @@ import site.page_objects.pages.individual.metal_color.forms.SummaryForm;
 
 public class SummarySection extends Section {
 
-    SummaryForm summaryForm = new SummaryForm();
+    SummaryForm summaryForm;
 
     @Step
     public void checkCalculationForm() {

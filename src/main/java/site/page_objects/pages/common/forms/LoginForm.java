@@ -10,11 +10,11 @@ import entities.User;
 public class LoginForm extends Form<User> {
 
     @Css("#Login")
-    public TextField name;
+    private TextField name;
 
     @Css("#Password")
-    public TextField password;
+    private TextField password;
 
     @Css("[type=submit]")
-    public Button enter;
+    private Button enter;
 }

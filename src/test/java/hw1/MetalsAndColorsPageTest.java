@@ -1,5 +1,6 @@
 package hw1;
 
+import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import listeners.AllureAttachmentListeners;
@@ -35,8 +36,9 @@ public class MetalsAndColorsPageTest extends TestNGBase {
     @Test
     public void checkPageFunctionality() {
 
-// Login on JDI site as User	user:Piter_Chailovskii	Piter_Chailovskii is logged in
-        JDIFrameworkSite.indexPage.headerSection.login();
+// LoginFunction on JDI site as User	user:Piter_Chailovskii	Piter_Chailovskii is logged in
+        JDIFrameworkSite.indexPage.headerSection.login(WebPage.getUrl().equalsIgnoreCase(
+                JDIFrameworkSite.indexPage.url));
         JDIFrameworkSite.indexPage.headerSection.checkUserName();
 
 // Open Metals & Colors page by Header menu		Metals & Colors page is opened

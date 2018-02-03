@@ -10,23 +10,25 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.page_objects.pages.common.forms.LoginForm;
 
-public class HeaderSection extends Section {
+public class HeaderSection extends Section{
 
     @FindBy(css = ".profile-photo>span")
-    public Button userName;
+    private Button userName;
 
     @FindBy(css = "ul.uui-navigation.nav.navbar-nav.m-l8 [href = 'page2.htm']")
-    public Button metalsAndColorsButton;
+    private Button metalsAndColorsButton;
 
     @Css(".profile-photo")
-    public Button profilePhoto;
+    private Button profilePhoto;
 
-    LoginForm loginForm = new LoginForm();
+    private LoginForm loginForm;
 
     @Step
-    public void login() {
-        profilePhoto.click();
-        loginForm.loginAs(new User());
+    public void login(boolean isIndexPage) {
+        if (userName.getText().equals("") && isIndexPage) {
+            profilePhoto.click();
+            loginForm.loginAs(new User());
+        }
     }
 
     @Step

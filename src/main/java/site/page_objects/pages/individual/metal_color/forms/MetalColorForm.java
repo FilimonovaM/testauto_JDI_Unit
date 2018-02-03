@@ -17,25 +17,25 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class MetalColorForm extends Form<MetalColorFormData> {
 
     @Css(".vertical-group label")
-    public CheckList elements;
+    private CheckList elements;
 
     @JDropdown(jroot = @JFindBy(css = ".colors"),
             jlist = @JFindBy(css = "li"),
             jvalue = @JFindBy(css = ".filter-option")
     )
-    public Dropdown colorDropdown;
+    private Dropdown colorDropdown;
 
     @FindBy(css = "[type='text']")
-    public TextField metalDropdown;
+    private TextField metalDropdown;
 
     @FindBy(css = "#salad-dropdown button")
-    public Label checkedVegetables;
+    private Label checkedVegetables;
 
     @FindBy(css = "#salad-dropdown label")
-    public CheckList vegetables;
+    private CheckList vegetables;
 
     @FindBy(css = "button#submit-button")
-    public Button submit;
+    private Button submit;
 
     @Step
     public void checkElementsChecklist(ElementsEnum... elementsEnum) {

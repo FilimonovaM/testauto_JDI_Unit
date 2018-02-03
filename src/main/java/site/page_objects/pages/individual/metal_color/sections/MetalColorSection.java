@@ -6,7 +6,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 import site.page_objects.pages.individual.metal_color.forms.MetalColorForm;
 
 public class MetalColorSection extends Section {
-    MetalColorForm metalColorForm = new MetalColorForm();
+    MetalColorForm metalColorForm;
 
     @Step
     public void checkMetalColorSection() {

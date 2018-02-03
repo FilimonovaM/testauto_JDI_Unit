@@ -10,11 +10,11 @@ import org.openqa.selenium.support.FindBy;
 public class SummaryForm extends Form<SummaryFormData> {
 
     @FindBy(css = "#odds-selector label")
-    public RadioButtons oddsRadioButtons;
+    private RadioButtons oddsRadioButtons;
 
     @FindBy(css = "#even-selector label")
-    public RadioButtons evenRadioButtons;
+    private RadioButtons evenRadioButtons;
 
     @Css("#calculate-button")
-    public Button calculatingButton;
+    private Button calculatingButton;
 }

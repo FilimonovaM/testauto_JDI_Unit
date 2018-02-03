@@ -6,7 +6,7 @@ import site.page_objects.pages.individual.metal_color.sections.ResultSection;
 import site.page_objects.pages.individual.metal_color.sections.SummarySection;
 
 public class MetalsAndColorsPage extends CommonPage {
-    public MetalColorSection metalColorSection = new MetalColorSection();
-    public SummarySection summarySection = new SummarySection();
-    public ResultSection resultSection = new ResultSection();
+    public MetalColorSection metalColorSection;
+    public SummarySection summarySection;
+    public ResultSection resultSection;
 }

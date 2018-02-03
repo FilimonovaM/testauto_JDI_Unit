@@ -10,7 +10,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class ResultSection extends Section {
 
     @FindBy(css = ".results li")
-    public TextList resultList;
+    private TextList resultList;
 
     @Step
     public void checkResultSet() {
