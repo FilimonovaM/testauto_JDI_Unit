@@ -13,7 +13,6 @@ import site.JDIFrameworkSite;
 
 import static com.codeborne.selenide.Selenide.close;
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static site.JDIFrameworkSite.*;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
@@ -25,7 +24,7 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebSite.init(JDIFrameworkSite.class);
         logger.info("Run Tests");
-        indexPage.open();
+        JDIFrameworkSite.indexPage.open();
     }
 
     @AfterClass(alwaysRun = true)
@@ -37,12 +36,12 @@ public class MetalsAndColorsPageTest extends TestNGBase {
     public void checkPageFunctionality() {
 
 // Login on JDI site as User	user:Piter_Chailovskii	Piter_Chailovskii is logged in
-        login();
-        indexPage.headerSection.checkUserName();
+        JDIFrameworkSite.indexPage.headerSection.login();
+        JDIFrameworkSite.indexPage.headerSection.checkUserName();
 
 // Open Metals & Colors page by Header menu		Metals & Colors page is opened
-        indexPage.headerSection.clickMetalsAndColorButton();
-        metalsAndColorsPage.checkOpened();
+        JDIFrameworkSite.indexPage.headerSection.clickMetalsAndColorButton();
+        JDIFrameworkSite.metalsAndColorsPage.checkOpened();
 
 // Fill form Metals & Colors by data below:	" Summary: 3, 8
         // Elements: Water, Fire
@@ -50,15 +49,14 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         // Metals: Selen
         // Vegetables: Cucumber,Tomato
 // Submit form Metals & Colors"	Form Metals & Colors form is filled
-// Submit form Metals & Colors
-        metalsAndColorsPage.summarySection.checkCalculationForm();
-        metalsAndColorsPage.metalColorSection.checkMetalColorSection();
+        JDIFrameworkSite.metalsAndColorsPage.summarySection.checkCalculationForm();
+        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection();
 // Summary: 11
 // Elements: Water, Fire
 // Color: Red
 // Metal: Selen
 // Vegetables: Cucumber, Tomato"
 // Result section contains certain data
-        metalsAndColorsPage.resultSection.checkResultSet();
+        JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();
     }
 }

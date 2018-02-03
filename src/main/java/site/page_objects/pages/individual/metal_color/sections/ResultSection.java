@@ -1,4 +1,4 @@
-package site.page_objects.page_sections.metals_page;
+package site.page_objects.pages.individual.metal_color.sections;
 
 import com.epam.jdi.uitests.web.selenium.elements.complex.TextList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;

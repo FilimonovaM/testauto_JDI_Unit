@@ -1,4 +1,4 @@
-package site.page_objects.forms;
+package site.page_objects.pages.individual.metal_color.forms;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.Label;

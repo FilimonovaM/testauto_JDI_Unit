@@ -1,27 +1,17 @@
 package site;
 
-import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
+import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JSite;
-import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
-import entities.User;
-import site.page_objects.forms.LoginForm;
-import site.page_objects.pages.IndexPage;
-import site.page_objects.pages.MetalsAndColorsPage;
-import ru.yandex.qatools.allure.annotations.Step;
+import site.page_objects.pages.individual.index.IndexPage;
+import site.page_objects.pages.individual.metal_color.MetalsAndColorsPage;
 
 @JSite("https://jdi-framework.github.io/tests/")
 public class JDIFrameworkSite extends WebSite {
+
+    @JPage(url = "index.htm", title = "Index Page")
     public static IndexPage indexPage;
-    public static LoginForm loginForm;
+
+    @JPage(value = "page2.htm", title = "Metal and Colors")
     public static MetalsAndColorsPage metalsAndColorsPage;
-
-    @Css(".profile-photo")
-    public static Button profilePhoto;
-
-    @Step
-    public static void login() {
-        profilePhoto.click();
-        loginForm.loginAs(new User());
-    }
 }
