@@ -12,9 +12,23 @@ public class MetalColorSection extends Section {
     @Step
     public void checkMetalColorSection() {
         metalColorFormData = new MetalColorFormData();
-        metalColorForm.checkSummaryForm(metalColorFormData);
-        metalColorForm.checkElementsChecklist(metalColorFormData);
-        metalColorForm.checkVegetablesDropdown(metalColorFormData);
+        metalColorForm.setMetalColorFormData(metalColorFormData);
+        metalColorForm.checkSummaryForm();
+        metalColorForm.checkElementsChecklist();
+        metalColorForm.checkVegetablesDropdown();
+        metalColorForm.submit(metalColorFormData);
+    }
+
+    @Step
+    public void checkMetalColorSection(String digits, String elements, String color,
+                                       String metal, String vegetables) {
+        metalColorFormData = new MetalColorFormData();
+        metalColorForm.setMetalColorFormData(metalColorFormData);
+        metalColorFormData.updateData(digits, elements, color,
+                metal, vegetables);
+        metalColorForm.checkSummaryForm();
+        metalColorForm.checkElementsChecklist();
+        metalColorForm.checkVegetablesDropdown();
         metalColorForm.submit(metalColorFormData);
     }
 }

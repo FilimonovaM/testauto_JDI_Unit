@@ -38,18 +38,24 @@ public class MetalColorForm extends Form<MetalColorFormData> {
 
     public SummaryForm summaryForm;
 
+    MetalColorFormData metalColorFormData;
+
+    public void setMetalColorFormData(MetalColorFormData metalColorFormData) {
+        this.metalColorFormData = metalColorFormData;
+    }
+
     @Step
-    public void checkSummaryForm(MetalColorFormData metalColorFormData){
+    public void checkSummaryForm(){
         summaryForm.submit(metalColorFormData);
     }
 
     @Step
-    public void checkElementsChecklist(MetalColorFormData metalColorFormData) {
+    public void checkElementsChecklist() {
         elements.check(metalColorFormData.elements);
     }
 
     @Step
-    public void checkVegetablesDropdown(MetalColorFormData metalColorFormData) {
+    public void checkVegetablesDropdown() {
         checkedVegetables.click();
         if (!checkedVegetables.getText().equals("")) {
             String[] chosenVegetables = checkedVegetables.getText().split(", ");
