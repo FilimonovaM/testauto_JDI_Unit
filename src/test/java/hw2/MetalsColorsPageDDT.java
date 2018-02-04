@@ -30,11 +30,6 @@ public class MetalsColorsPageDDT extends TestNGBase {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebSite.init(JDIFrameworkSite.class);
         logger.info("Run Tests");
-
-    }
-
-    @BeforeMethod(alwaysRun = true)
-    public void loginAndOpenPage(){
         JDIFrameworkSite.indexPage.open();
         //1 LoginFunction on JDI site as User	user:Piter_Chailovskii
         JDIFrameworkSite.indexPage.headerSection.login(UserEnum.PITER);
@@ -42,7 +37,6 @@ public class MetalsColorsPageDDT extends TestNGBase {
         //2 Open Metals & Colors page by Header menu
         JDIFrameworkSite.indexPage.headerSection.clickMetalsAndColorButton();
     }
-
 
     @AfterMethod(alwaysRun = true)
     public void back() {

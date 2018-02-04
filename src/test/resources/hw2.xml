@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="WINDOWS-1251"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="JDI DDT" parallel="methods" thread-count="1">
+<suite name="JDI DDT" parallel="methods" thread-count="2">
     <test name="JDI second exercise" preserve-order="true">
         <classes>
             <class name="hw2.MetalsColorsPageDDT"/>
