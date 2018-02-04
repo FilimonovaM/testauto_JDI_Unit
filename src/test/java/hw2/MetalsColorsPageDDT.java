@@ -43,8 +43,9 @@ public class MetalsColorsPageDDT extends TestNGBase {
         JDIFrameworkSite.metalsAndColorsPage.refresh();
     }
 
-    @Test(dataProvider = "getDataFromJsonFile", invocationCount = 6)
+    @Test(dataProvider = "getDataFromJsonFile")
     public void checkPageFunctionality(String[] newData) {
+
         //3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet .json
         JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(new DataUpdate(newData));
 

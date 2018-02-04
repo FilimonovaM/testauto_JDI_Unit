@@ -3,15 +3,17 @@ package hw1;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import entities.DataUpdate;
-import enums.UserEnum;
 import listeners.AllureAttachmentListeners;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
 
-import static com.codeborne.selenide.Selenide.close;
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
+import static enums.UserEnum.PITER;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
@@ -29,12 +31,7 @@ public class MetalsAndColorsPageTest extends TestNGBase {
     @BeforeMethod(alwaysRun = true)
     public void login() {
         //1 Piter_Chailovskii is logged in
-        JDIFrameworkSite.indexPage.headerSection.login(UserEnum.PITER);
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void teardown() {
-        close();
+        JDIFrameworkSite.indexPage.headerSection.login(PITER);
     }
 
     @Test
