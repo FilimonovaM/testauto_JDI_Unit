@@ -41,6 +41,7 @@ public class DataUpdate {
             oddsRadioButton = newData[0].substring(0, 1);
             evenRadioButton = newData[0].substring(1, 2);
         }
+
         List<String> list = new ArrayList<>();
         if (newData[1].length() > 0) {
             for (ElementsEnum existsElement : ElementsEnum.values()) {
@@ -49,6 +50,7 @@ public class DataUpdate {
                 }
             }
         }
+
         elements = new String[list.size()];
         list.toArray(elements);
         for(String s:elements){
@@ -75,6 +77,7 @@ public class DataUpdate {
                 }
             }
         }
+
         this.vegetables = new String[list.size()];
         list.toArray(vegetables);
         for(String s:vegetables){
