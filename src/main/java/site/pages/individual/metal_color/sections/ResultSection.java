@@ -11,13 +11,11 @@ public class ResultSection extends Section {
     @FindBy(css = ".results li")
     private TextList resultList;
 
-    ResultListData metalColorFormData = new ResultListData();
-
     @Step
     public void checkResultSet() {
-
+        ResultListData resultListData = new ResultListData();
         String logOfSection = resultList.getValue();
-        for (String line : metalColorFormData.results) {
+        for (String line : resultListData.results) {
             if (!logOfSection.contains(line)) {
                 Assert.assertEquals("", line);
             }

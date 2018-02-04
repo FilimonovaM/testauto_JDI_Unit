@@ -10,16 +10,4 @@ public class OperationsWithData {
         }
         return 0;
     }
-
-    static public String intToString(int digit) {
-        return String.valueOf(digit);
-    }
-
-    static public int summary(int... digits) {
-        int sum = 0;
-        for (int i : digits) {
-            sum += i;
-        }
-        return sum;
-    }
 }

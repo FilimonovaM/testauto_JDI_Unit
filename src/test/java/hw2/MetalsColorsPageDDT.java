@@ -2,6 +2,7 @@ package hw2;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import entities.DataUpdate;
 import enums.UserEnum;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.*;
@@ -29,25 +30,29 @@ public class MetalsColorsPageDDT extends TestNGBase {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebSite.init(JDIFrameworkSite.class);
         logger.info("Run Tests");
+
+    }
+
+    @BeforeMethod(alwaysRun = true)
+    public void loginAndOpenPage(){
         JDIFrameworkSite.indexPage.open();
         //1 LoginFunction on JDI site as User	user:Piter_Chailovskii
         JDIFrameworkSite.indexPage.headerSection.login(UserEnum.PITER);
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void login() {
-        JDIFrameworkSite.metalsAndColorsPage.back();
-    }
-
-    @Test(dataProvider = "getDataFromJsonFile")
-    public void checkPageFunctionality(String digits, String elements, String color, String metal, String vegetables) {
 
         //2 Open Metals & Colors page by Header menu
         JDIFrameworkSite.indexPage.headerSection.clickMetalsAndColorButton();
+    }
 
+
+    @AfterMethod(alwaysRun = true)
+    public void back() {
+        JDIFrameworkSite.metalsAndColorsPage.refresh();
+    }
+
+    @Test(dataProvider = "getDataFromJsonFile", invocationCount = 6)
+    public void checkPageFunctionality(String[] newData) {
         //3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet .json
-        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(digits, elements,
-                color, metal, vegetables);
+        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(new DataUpdate(newData));
 
         //4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();

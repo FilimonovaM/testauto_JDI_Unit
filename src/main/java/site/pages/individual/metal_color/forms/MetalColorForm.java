@@ -9,6 +9,7 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
+import entities.DataUpdate;
 import entities.MetalColorFormData;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -40,8 +41,8 @@ public class MetalColorForm extends Form<MetalColorFormData> {
 
     MetalColorFormData metalColorFormData;
 
-    public void setMetalColorFormData(MetalColorFormData metalColorFormData) {
-        this.metalColorFormData = metalColorFormData;
+    public void setMetalColorFormData(DataUpdate newData) {
+        metalColorFormData = new MetalColorFormData(newData);
     }
 
     @Step

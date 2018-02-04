@@ -2,6 +2,7 @@ package hw1;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import entities.DataUpdate;
 import enums.UserEnum;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.*;
@@ -45,7 +46,7 @@ public class MetalsAndColorsPageTest extends TestNGBase {
 
 //3 Fill form Metals & Colors by data below:
 // " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
-        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection();
+        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(new DataUpdate());
 
 // Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();

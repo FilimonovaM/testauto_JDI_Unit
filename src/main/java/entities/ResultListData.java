@@ -4,15 +4,14 @@ import entities.interfaces.IResults;
 
 import static utils.OperationsWithData.*;
 
-public class ResultListData extends MetalColorFormData implements IResults {
+public class ResultListData extends DataUpdate implements IResults {
 
     @Override
     public String getLog(String name, String... values) {
         return replaceLine(name, values);
     }
 
-    private String resultOfCalculation = intToString(summary(
-            new int[]{stringToInt(oddsRadioButton), stringToInt(evenRadioButton)}));
+    private String resultOfCalculation = Integer.toString(stringToInt(oddsRadioButton) + stringToInt(evenRadioButton));
 
     public String[] results = {
             getLog("Summary: ", resultOfCalculation),

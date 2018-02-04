@@ -1,24 +1,26 @@
 package entities;
 
 import com.epam.commons.DataClass;
+import enums.*;
 
-public class MetalColorFormData extends DataClass {
+public class MetalColor extends DataClass {
 
-    public String oddsRadioButton;
-    public String evenRadioButton;
-    public String colorDropdown;
-    public String metalDropdown;
-    public String[] elements;
-    public String[] vegetables;
+    public String oddsRadioButton = OddsDigitsEnum.THREE.text;
+    public String evenRadioButton = EvenDigitsEnum.EIGHT.text;
+    public String colorDropdown = ColorsEnum.RED.text;
+    public String metalDropdown = MetalsEnum.SELEN.text;
+    public String[] elements = {ElementsEnum.WATER.text, ElementsEnum.FIRE.text};
+    public String[] vegetables = {VegetablesEnum.CUCUMBER.text, VegetablesEnum.TOMATO.text};
 
-    public MetalColorFormData(DataUpdate newData) {
-        this.oddsRadioButton = newData.oddsRadioButton;
-        this.evenRadioButton = newData.evenRadioButton;
-        this.colorDropdown = newData.colorDropdown;
-        this.metalDropdown = newData.metalDropdown;
-        this.elements = newData.elements;
-        this.vegetables = newData.vegetables;
+    public MetalColor(DataUpdate dataUpdate) {
+        this.oddsRadioButton = dataUpdate.oddsRadioButton;
+        this.evenRadioButton = dataUpdate.evenRadioButton;
+        this.colorDropdown = dataUpdate.colorDropdown;
+        this.metalDropdown = dataUpdate.metalDropdown;
+        this.elements = dataUpdate.elements;
+        this.vegetables = dataUpdate.vegetables;
     }
+
 
     //    @Stories("Data Updating from \'ex8_jdi_metalsColorsDataSet .json\'")
 //    public void updateData(String digits, String elements, String color, String metal, String vegetables) {
@@ -28,6 +30,19 @@ public class MetalColorFormData extends DataClass {
 //        setElements(elements);
 //        setVegetables(vegetables);
 //    }
+//
+//    IResults iResults=new IResults() {
+//        @Override
+//        public String getLog(String name, String... values) {
+//            return replaceLine(name, values);
+//        }
+//    };
+//    public String[] results = {
+//            iResults.getLog("Summary: ", resultOfCalculation),
+//            iResults.getLog("Elements: ", elements),
+//            iResults.getLog("Color: ", colorDropdown),
+//            iResults.getLog("Metal: ", metalDropdown),
+//            iResults.getLog("Vegetables: ", vegetables)};
 //
 //    private void setDigitToSummaryRadioButtons(String digits) {
 //        if (digits.length() == 2) {
