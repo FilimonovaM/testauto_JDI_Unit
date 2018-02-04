@@ -3,8 +3,8 @@ package hw1;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import listeners.AllureAttachmentListeners;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -13,6 +13,9 @@ import site.JDIFrameworkSite;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 import static entities.DataUpdate.DEFAULT;
+import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
+import static enums.MenuEnum.METALS_AND_COLORS;
+import static enums.MenuEnum.SERVICE;
 import static enums.UserEnum.PITER;
 
 @Listeners(AllureAttachmentListeners.class)
@@ -28,24 +31,28 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         JDIFrameworkSite.indexPage.open();
     }
 
-    @BeforeMethod(alwaysRun = true)
-    public void login() {
-        //1 Piter_Chailovskii is logged in
-        JDIFrameworkSite.indexPage.headerSection.login(PITER);
+    @AfterTest(alwaysRun = true)
+    public void tearDown() {
+        JDIFrameworkSite.metalsAndColorsPage.headerSection.logout();
     }
 
     @Test
     public void checkPageFunctionality() {
+        //1 Piter_Chailovskii is logged in
+        JDIFrameworkSite.indexPage.headerSection.login(PITER);
 
 //2 Open Metals & Colors page by Header menu		Metals & Colors page is opened
-        JDIFrameworkSite.indexPage.headerSection.clickMetalsAndColorButton();
-        JDIFrameworkSite.metalsAndColorsPage.checkOpened();
+        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
+        JDIFrameworkSite.metalsAndColorsPage.isOpened();
 
 //3 Fill form Metals & Colors by data below:
 // " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
         JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(DEFAULT);
 
-// Result section contains certain data
+//4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();
+
+        //5 Extra Level Of Menu
+        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(SERVICE.page, TABLE_WITH_PAGES.option);
     }
 }

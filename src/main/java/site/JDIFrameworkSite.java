@@ -14,4 +14,5 @@ public class JDIFrameworkSite extends WebSite {
 
     @JPage(value = "page2.htm", title = "Metal and Colors")
     public static MetalsAndColorsPage metalsAndColorsPage;
+
 }
