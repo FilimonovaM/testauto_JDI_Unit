@@ -1,8 +1,8 @@
 package hw1;
 
-import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import enums.UserEnum;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -27,9 +27,8 @@ public class MetalsAndColorsPageTest extends TestNGBase {
 
     @BeforeMethod(alwaysRun = true)
     public void login() {
-        //1 LoginFunction on JDI site as User	user:Piter_Chailovskii	Piter_Chailovskii is logged in
-        JDIFrameworkSite.indexPage.headerSection.login(WebPage.getUrl().equalsIgnoreCase(
-                JDIFrameworkSite.indexPage.url));
+        //1 Piter_Chailovskii is logged in
+        JDIFrameworkSite.indexPage.headerSection.login(UserEnum.PITER);
     }
 
     @AfterClass(alwaysRun = true)
@@ -39,9 +38,6 @@ public class MetalsAndColorsPageTest extends TestNGBase {
 
     @Test
     public void checkPageFunctionality() {
-
-//1 Piter_Chailovskii is logged in
-        JDIFrameworkSite.indexPage.headerSection.checkUserName();
 
 //2 Open Metals & Colors page by Header menu		Metals & Colors page is opened
         JDIFrameworkSite.indexPage.headerSection.clickMetalsAndColorButton();

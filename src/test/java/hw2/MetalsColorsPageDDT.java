@@ -1,8 +1,8 @@
 package hw2;
 
-import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import enums.UserEnum;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -31,8 +31,7 @@ public class MetalsColorsPageDDT extends TestNGBase {
         logger.info("Run Tests");
         JDIFrameworkSite.indexPage.open();
         //1 LoginFunction on JDI site as User	user:Piter_Chailovskii
-        JDIFrameworkSite.indexPage.headerSection.login(WebPage.getUrl().equalsIgnoreCase(
-                JDIFrameworkSite.indexPage.url));
+        JDIFrameworkSite.indexPage.headerSection.login(UserEnum.PITER);
     }
 
     @AfterMethod(alwaysRun = true)
