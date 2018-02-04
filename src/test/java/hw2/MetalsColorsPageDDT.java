@@ -38,11 +38,6 @@ public class MetalsColorsPageDDT extends TestNGBase {
         JDIFrameworkSite.indexPage.headerSection.clickMetalsAndColorButton();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void back() {
-        JDIFrameworkSite.metalsAndColorsPage.refresh();
-    }
-
     @Test(dataProvider = "getDataFromJsonFile")
     public void checkPageFunctionality(String[] newData) {
 
@@ -51,5 +46,6 @@ public class MetalsColorsPageDDT extends TestNGBase {
 
         //4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();
+        JDIFrameworkSite.metalsAndColorsPage.refresh();
     }
 }

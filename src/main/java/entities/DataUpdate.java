@@ -3,6 +3,7 @@ package entities;
 import enums.ColorsEnum;
 import enums.ElementsEnum;
 import enums.VegetablesEnum;
+import utils.OperationsWithData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,12 @@ import static enums.ColorsEnum.RED;
 import static enums.ElementsEnum.FIRE;
 import static enums.ElementsEnum.WATER;
 import static enums.EvenDigitsEnum.EIGHT;
+import static enums.EvenDigitsEnum.TWO;
 import static enums.MetalsEnum.SELEN;
+import static enums.OddsDigitsEnum.ONE;
 import static enums.OddsDigitsEnum.THREE;
 import static enums.VegetablesEnum.CUCUMBER;
+import static enums.VegetablesEnum.SALAD;
 import static enums.VegetablesEnum.TOMATO;
 
 public class DataUpdate {
@@ -40,6 +44,12 @@ public class DataUpdate {
         if (newData[0].length() == 2) {
             oddsRadioButton = newData[0].substring(0, 1);
             evenRadioButton = newData[0].substring(1, 2);
+        } else if (newData[0].length() == 1) {
+            oddsRadioButton = ((OperationsWithData.stringToInt(newData[0]) % 2) == 0) ? ONE.text : newData[0];
+            evenRadioButton = ((OperationsWithData.stringToInt(newData[0]) % 2) != 0) ? TWO.text : newData[0];
+        } else {
+            oddsRadioButton = ONE.text;
+            evenRadioButton = TWO.text;
         }
 
         List<String> list = new ArrayList<>();
@@ -49,12 +59,10 @@ public class DataUpdate {
                     list.add(existsElement.text);
                 }
             }
-        }
-
-        elements = new String[list.size()];
-        list.toArray(elements);
-        for(String s:elements){
-            System.out.println();
+            elements = new String[list.size()];
+            list.toArray(elements);
+        } else {
+            elements = new String[]{WATER.text, WATER.text};
         }
 
         colorDropdown = "Colors";
@@ -67,7 +75,7 @@ public class DataUpdate {
             }
         }
 
-        metalDropdown = newData[3];
+        metalDropdown = (!newData[3].equals("")) ? newData[3] : "Col";
 
         if (newData[4].length() > 0) {
             list = new ArrayList<>();
@@ -76,12 +84,10 @@ public class DataUpdate {
                     list.add(existsVegetable.text);
                 }
             }
-        }
-
-        this.vegetables = new String[list.size()];
-        list.toArray(vegetables);
-        for(String s:vegetables){
-            System.out.println();
+            vegetables = new String[list.size()];
+            list.toArray(vegetables);
+        } else {
+            vegetables = new String[]{SALAD.text};
         }
     }
 }
