@@ -61,6 +61,5 @@ public class MetalsColorsPageDDT extends TestNGBase {
 
         //5 Extra Level Of Menu
         JDIFrameworkSite.metalsAndColorsPage.headerSection.selectOnMenu(SERVICE.page, TABLE_WITH_PAGES.option);
-
     }
 }

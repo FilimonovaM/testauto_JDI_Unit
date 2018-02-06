@@ -16,11 +16,9 @@ public class ResultSection extends Section {
         ResultListData resultListData = new ResultListData();
         String logOfSection = resultList.getValue();
         for (String line : resultListData.results) {
-            System.out.print(line + "   ");
             if (!logOfSection.contains(line)) {
                 Assert.assertEquals("", line);
             }
-            System.out.println();
         }
     }
 }

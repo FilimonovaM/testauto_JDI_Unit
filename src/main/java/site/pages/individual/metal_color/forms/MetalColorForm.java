@@ -46,24 +46,28 @@ public class MetalColorForm extends Form<MetalColorFormData> {
     }
 
     @Step
-    public void checkSummaryForm(){
+    public void checkSummaryForm() {
         summaryForm.submit(metalColorFormData);
     }
 
     @Step
     public void checkElementsChecklist() {
-        elements.check(metalColorFormData.elements);
+        if (metalColorFormData.elements != null) {
+            elements.check(metalColorFormData.elements);
+        }
     }
 
     @Step
     public void checkVegetablesDropdown() {
-        checkedVegetables.click();
-        if (!checkedVegetables.getText().equals("")) {
-            String[] chosenVegetables = checkedVegetables.getText().split(", ");
-            for (String vegetable : chosenVegetables) {
-                vegetables.check(vegetable);
+        if (DataUpdate.vegetables != null) {
+            checkedVegetables.click();
+            if (!checkedVegetables.getText().equals("")) {
+                String[] chosenVegetables = checkedVegetables.getText().split(", ");
+                for (String vegetable : chosenVegetables) {
+                    vegetables.check(vegetable);
+                }
             }
+            vegetables.check(metalColorFormData.vegetables);
         }
-        vegetables.check(metalColorFormData.vegetables);
     }
 }

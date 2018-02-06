@@ -29,6 +29,7 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         WebSite.init(JDIFrameworkSite.class);
         logger.info("Run Tests");
         JDIFrameworkSite.indexPage.open();
+
     }
 
     @AfterTest(alwaysRun = true)
@@ -38,18 +39,19 @@ public class MetalsAndColorsPageTest extends TestNGBase {
 
     @Test
     public void checkPageFunctionality() {
+
         //1 Piter_Chailovskii is logged in
         JDIFrameworkSite.indexPage.headerSection.login(PITER);
 
-//2 Open Metals & Colors page by Header menu		Metals & Colors page is opened
+        //2 Open Metals & Colors page by Header menu		Metals & Colors page is opened
         JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
         JDIFrameworkSite.metalsAndColorsPage.isOpened();
 
-//3 Fill form Metals & Colors by data below:
-// " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
+        //3 Fill form Metals & Colors by data below:
+        // " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
         JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(DEFAULT);
 
-//4 Result section contains certain data
+        //4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();
 
         //5 Extra Level Of Menu
