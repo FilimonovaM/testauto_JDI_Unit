@@ -1,18 +1,16 @@
-package hw1;
+package hw2;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import entities.DataUpdate;
 import listeners.AllureAttachmentListeners;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
+import utils.JsonFileReader;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static entities.DataUpdate.DEFAULT;
 import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
 import static enums.MenuEnum.METALS_AND_COLORS;
 import static enums.MenuEnum.SERVICE;
@@ -21,7 +19,14 @@ import static enums.UserEnum.PITER;
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
 @Stories({"check \"Metals & Colors page functionality\""})
-public class MetalsAndColorsPageTest extends TestNGBase {
+public class MetalsColorsPageDDT extends TestNGBase {
+
+    @DataProvider
+    public Object[][] getDataFromJsonFile() {
+        JsonFileReader jsonFileReader = new JsonFileReader();
+        Object[][] objects = jsonFileReader.readFile();
+        return objects;
+    }
 
     @BeforeClass(alwaysRun = true)
     public void setup() {
@@ -29,32 +34,32 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         WebSite.init(JDIFrameworkSite.class);
         logger.info("Run Tests");
         JDIFrameworkSite.indexPage.open();
-
     }
 
-    @AfterTest(alwaysRun = true)
-    public void tearDown() {
+    @BeforeMethod(alwaysRun = true)
+    public void preparePage() {
+        //1 LoginFunction on JDI site as User	user:Piter_Chailovskii
+        JDIFrameworkSite.indexPage.headerSection.login(PITER);
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void refreshPage() {
         JDIFrameworkSite.metalsAndColorsPage.headerSection.logout();
     }
 
-    @Test
-    public void checkPageFunctionality() {
+    @Test(dataProvider = "getDataFromJsonFile")
+    public void checkPageFunctionality(String[] newData) {
 
-        //1 Piter_Chailovskii is logged in
-        JDIFrameworkSite.indexPage.headerSection.login(PITER);
-
-        //2 Open Metals & Colors page by Header menu		Metals & Colors page is opened
+        //2 Open Metals & Colors page by Header menu
         JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
-        JDIFrameworkSite.metalsAndColorsPage.isOpened();
 
-        //3 Fill form Metals & Colors by data below:
-        // " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
-        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(DEFAULT);
+        // 3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet .json
+        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(new DataUpdate(newData));
 
         //4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();
 
         //5 Extra Level Of Menu
-        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(SERVICE.page, TABLE_WITH_PAGES.option);
+        JDIFrameworkSite.metalsAndColorsPage.headerSection.selectOnMenu(SERVICE.page, TABLE_WITH_PAGES.option);
     }
 }

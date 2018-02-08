@@ -2,44 +2,60 @@ package site.pages.common.sections;
 
 import com.codeborne.selenide.Condition;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
+import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
+import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
 import entities.User;
-import enums.IndexPageEnum;
+import enums.InnerMenuEnum;
+import enums.UserEnum;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.forms.LoginForm;
 
-public class HeaderSection extends Section{
+public class HeaderSection extends Section {
 
     @FindBy(css = ".profile-photo>span")
     private Button userName;
 
-    @FindBy(css = "ul.uui-navigation.nav.navbar-nav.m-l8 [href = 'page2.htm']")
-    private Button metalsAndColorsButton;
-
     @Css(".profile-photo")
     private Button profilePhoto;
 
+    @Css(".logout button")
+    private Button logoutButton;
+
+    @Css(".form-horizontal")
     private LoginForm loginForm;
 
-    // TODO OH MY, login method shout be parametrized by User.class
-    // TODO this method should perform LOGIN action ONLY !! Regardless that what kind of page has opened...
+    @JFindBy (css = "[role='navigation']>.m-l8 li a")
+    private Menu<Enum> menuHeader;
+
+    @JFindBy(css = ".open ul a")
+    private Menu<InnerMenuEnum> serviceMenu;
+
     @Step
-    public void login(boolean isIndexPage) {
-        if (userName.getText().equals("") && isIndexPage) {
-            profilePhoto.click();
-            loginForm.loginAs(new User());
+    public void login(UserEnum userEnum) {
+        profilePhoto.click();
+        loginForm.loginAs(new User(userEnum));
+        userName.should(Condition.text(userEnum.userName));
+    }
+
+    public void logout() {
+        profilePhoto.click();
+        logoutButton.click();
+    }
+
+    @Step
+    public void selectOnMenu(String firstLevelOfMenu) {
+        menuHeader.select(firstLevelOfMenu);
+            System.out.println(menuHeader.getOptionsAsText());
+    }
+    @Step
+    public void selectOnMenu(String firstLevelOfMenu, String optionOfInnerLevelOfMenu) {
+        menuHeader.select(firstLevelOfMenu);
+        System.out.println(menuHeader.getOptionsAsText());
+        if (optionOfInnerLevelOfMenu != null && (serviceMenu.isDisplayed())) {
+            serviceMenu.clickOn(optionOfInnerLevelOfMenu);
         }
-    }
-
-    @Step
-    public void checkUserName() {
-        userName.should(Condition.text(IndexPageEnum.NAME.text));
-    }
-
-    @Step
-    public void clickMetalsAndColorButton() {
-        metalsAndColorsButton.click();
     }
 }

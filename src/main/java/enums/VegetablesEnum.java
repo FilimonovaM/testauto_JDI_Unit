@@ -1,9 +1,9 @@
 package enums;
 
 public enum VegetablesEnum {
-    SALAD("Salad"),
     CUCUMBER("Cucumber"),
     TOMATO("Tomato"),
+    SALAD("Salad"),
     ONION("Onion");
 
     public String text;
