@@ -32,10 +32,10 @@ public class MetalsAndColorsPageTest extends TestNGBase {
 
     }
 
-//    @AfterTest(alwaysRun = true)
-//    public void tearDown() {
-//        JDIFrameworkSite.metalsAndColorsPage.headerSection.logout();
-//    }
+    @AfterTest(alwaysRun = true)
+    public void tearDown() {
+        JDIFrameworkSite.metalsAndColorsPage.headerSection.logout();
+    }
 
     @Test
     public void checkPageFunctionality() {
