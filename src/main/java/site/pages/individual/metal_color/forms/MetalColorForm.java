@@ -65,11 +65,6 @@ public class MetalColorForm extends Form<MetalColorFormData> {
             checkedVegetables.click();
             vegetables.check(DEFAULT_VEGETABLE.text);
             for(String vegetable : metalColorFormData.vegetables){
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e){
-                    e.printStackTrace();
-                }
                 vegetables.check(vegetable);
                 System.out.println(vegetable);
             }
