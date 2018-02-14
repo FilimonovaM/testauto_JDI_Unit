@@ -4,7 +4,6 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.TextList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import entities.ResultListData;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
 
 public class ResultSection extends Section {
