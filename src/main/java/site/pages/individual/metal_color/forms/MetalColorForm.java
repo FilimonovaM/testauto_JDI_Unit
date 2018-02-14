@@ -14,6 +14,8 @@ import entities.MetalColorFormData;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import static enums.VegetablesEnum.DEFAULT_VEGETABLE;
+
 public class MetalColorForm extends Form<MetalColorFormData> {
 
     @Css(".vertical-group label")
@@ -59,15 +61,18 @@ public class MetalColorForm extends Form<MetalColorFormData> {
 
     @Step
     public void checkVegetablesDropdown() {
-        if (DataUpdate.vegetables != null) {
+        if (DataUpdate.getVegetables() != null) {
             checkedVegetables.click();
-            if (!checkedVegetables.getText().equals("")) {
-                String[] chosenVegetables = checkedVegetables.getText().split(", ");
-                for (String vegetable : chosenVegetables) {
-                    vegetables.check(vegetable);
+            vegetables.check(DEFAULT_VEGETABLE.text);
+            for(String vegetable : metalColorFormData.vegetables){
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e){
+                    e.printStackTrace();
                 }
+                vegetables.check(vegetable);
+                System.out.println(vegetable);
             }
-            vegetables.check(metalColorFormData.vegetables);
         }
     }
 }

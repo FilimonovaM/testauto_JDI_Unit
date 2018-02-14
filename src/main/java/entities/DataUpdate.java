@@ -12,14 +12,38 @@ import static utils.ValueValidatorForMetalColorForm.*;
 
 public class DataUpdate {
 
-    public static String oddsRadioButton;
-    public static String evenRadioButton;
-    public static String colorDropdown;
-    public static String metalDropdown;
-    public static String[] elements;
-    public static String[] vegetables;
+    private static String oddsRadioButton;
+    private static String evenRadioButton;
+    private static String colorDropdown;
+    private static String metalDropdown;
+    private static String[] elements;
+    private static String[] vegetables;
 
-    public static final DataUpdate DEFAULT = new DataUpdate(new String[]{
+    public static String getOddsRadioButton() {
+        return oddsRadioButton;
+    }
+
+    public static String getEvenRadioButton() {
+        return evenRadioButton;
+    }
+
+    public static String getColorDropdown() {
+        return colorDropdown;
+    }
+
+    public static String getMetalDropdown() {
+        return metalDropdown;
+    }
+
+    public static String[] getElements() {
+        return elements;
+    }
+
+    public static String[] getVegetables() {
+        return vegetables;
+    }
+
+    public static final DataUpdate DEFAULT_DATA = new DataUpdate(new String[]{
             THREE.text + EIGHT.text,
             WATER.text + FIRE.text,
             RED.text,

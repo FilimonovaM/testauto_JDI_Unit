@@ -11,29 +11,27 @@ import static enums.ElementsEnum.WATER;
 import static utils.OperationsWithData.stringToInt;
 
 public class ValueValidatorForMetalColorForm {
-    private static final String DEFAULT_ODDS = "1";
-    private static final String DEFAULT_EVEN = "2";
     private static final String DEFAULT_COLOR = "Colors";
     private static final String DEFAULT_METAL = "Col";
 
     public static String setOddsDigitValue(String oddsValue) {
         if (oddsValue.length() == 2) {
             return (stringToInt(oddsValue.substring(0, 1)) % 2 != 0) ? oddsValue.substring(0, 1) :
-                    (stringToInt(oddsValue.substring(1, 2)) % 2 != 0) ? oddsValue.substring(1, 2) : DEFAULT_ODDS;
+                    (stringToInt(oddsValue.substring(1, 2)) % 2 != 0) ? oddsValue.substring(1, 2) : null;
         } else if (oddsValue.length() == 1) {
-            return (stringToInt(oddsValue.substring(0, 1)) % 2 != 0) ? oddsValue : DEFAULT_ODDS;
+            return (stringToInt(oddsValue.substring(0, 1)) % 2 != 0) ? oddsValue : null;
         }
-        return DEFAULT_ODDS;
+        return null;
     }
 
     public static String setEvenDigitValue(String evenValue) {
         if (evenValue.length() == 2) {
             return (stringToInt(evenValue.substring(0, 1)) % 2 == 0) ? evenValue.substring(0, 1) :
-                    (stringToInt(evenValue.substring(1, 2)) % 2 == 0) ? evenValue.substring(1, 2) : DEFAULT_EVEN;
+                    (stringToInt(evenValue.substring(1, 2)) % 2 == 0) ? evenValue.substring(1, 2) : null;
         } else if (evenValue.length() == 1) {
-            return (stringToInt(evenValue.substring(0, 1)) % 2 == 0) ? evenValue : DEFAULT_EVEN;
+            return (stringToInt(evenValue.substring(0, 1)) % 2 == 0) ? evenValue : null;
         }
-        return DEFAULT_EVEN;
+        return null;
     }
 
     public static String[] setEvenElementsValue(String elements) {
@@ -45,7 +43,7 @@ public class ValueValidatorForMetalColorForm {
                 }
             }
         }
-        return (list.size() > 0) ? list.toArray(new String[list.size()]) : new String[]{WATER.text, WATER.text};
+        return (list.size() > 0) ? list.toArray(new String[list.size()]) : null;
     }
 
     public static String setColorValue(String colorValue) {
@@ -56,11 +54,11 @@ public class ValueValidatorForMetalColorForm {
                 }
             }
         }
-        return DEFAULT_COLOR;
+        return null;
     }
 
     public static String setMetalValue(String metal) {
-        return (!metal.equals("")) ? metal : DEFAULT_METAL;
+        return (!metal.equals("")) ? metal : null;
     }
 
     public static String[] setVegetablesValue(String vegetables) {

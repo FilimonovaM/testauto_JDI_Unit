@@ -3,7 +3,7 @@ package enums;
 public enum VegetablesEnum {
     CUCUMBER("Cucumber"),
     TOMATO("Tomato"),
-    SALAD("Salad"),
+    DEFAULT_VEGETABLE("Salad"),
     ONION("Onion");
 
     public String text;
