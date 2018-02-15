@@ -1,21 +1,35 @@
 package entities;
 
-import com.epam.commons.DataClass;
-import enums.*;
+import entities.interfaces.IResults;
 
-import static utils.OperationsWithData.*;
+import static enums.ColorsEnum.DEFAULT_COLOR;
+import static enums.EvenDigitsEnum.DEFAULT_SUM;
+import static enums.MetalsEnum.DEFAULT_METAL;
+import static enums.VegetablesEnum.DEFAULT_VEGETABLE;
+import static utils.OperationsWithData.stringToInt;
 
-// TODO NO NO NO NO, take a look on you last presentation !!
-// TODO specially on User.class and LoginForm, feel the difference between that idea and yours..
-public class ResultListData extends DataClass {
-    private String calculationResult = String.format("%s%s", "Summary: ", intToString(summary(
-            new int[]{stringToInt(OddsDigitsEnum.THREE.text), stringToInt(EvenDigitsEnum.EIGHT.text)})));
-    private String elementsResult = String.format("%s%s, %s", "Elements: ",
-            ElementsEnum.WATER.text, ElementsEnum.FIRE.text);
-    private String colorResult = String.format("%s%s", "Color: ", ColorsEnum.RED.text);
-    private String metalResult = String.format("%s%s", "Metal: ", MetalsEnum.SELEN.text);
-    private String vegetablesResult = String.format("%s%s, %s", "Vegetables: ", VegetablesEnum.CUCUMBER.text,
-            VegetablesEnum.TOMATO.text);
+public class ResultListData extends DataUpdate implements IResults {
 
-    public String[] results = {calculationResult, elementsResult, colorResult, metalResult, vegetablesResult};
+    @Override
+    public String getLog(String name, String... values) {
+        return replaceLine(name, values);
+    }
+
+    private String resultOfCalculation = (getOddsRadioButton() != null && getEvenRadioButton() != null) ?
+            (Integer.toString(stringToInt(getOddsRadioButton()) +
+                    stringToInt(getEvenRadioButton()))) : DEFAULT_SUM.text;
+
+    public String[] results = (getElements() == null) ?
+            new String[]{getLog("Summary: ", resultOfCalculation),
+                    getLog("Color: ", (getColorDropdown() == null) ? DEFAULT_COLOR.text : getColorDropdown()),
+                    getLog("Metal: ", (getMetalDropdown() == null) ? DEFAULT_METAL.text : getMetalDropdown()),
+                    getLog("Vegetables: ", (getVegetables() == null) ? new String[]{DEFAULT_VEGETABLE.text}
+                            : getVegetables())} :
+            new String[]{getLog("Summary: ", resultOfCalculation),
+                    getLog("Elements: ", getElements()),
+                    getLog("Color: ", (getColorDropdown() == null) ? DEFAULT_COLOR.text : getColorDropdown()),
+                    getLog("Metal: ", (getMetalDropdown() == null) ? DEFAULT_METAL.text : getMetalDropdown()),
+                    getLog("Vegetables: ", (getVegetables() == null) ? new String[]{DEFAULT_VEGETABLE.text}
+                    : getVegetables())};
+
 }

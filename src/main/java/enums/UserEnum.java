@@ -1,13 +1,15 @@
 package enums;
 
 public enum UserEnum {
-    PITER("epam","1234");
+    PITER("epam","1234","PITER CHAILOVSKI");
 
-    public final String userName;
+    public final String login;
     public final String password;
+    public final String userName;
 
-    UserEnum(String name, String password) {
-        this.userName = name;
+    UserEnum(String login, String password, String userName) {
+        this.login = login;
         this.password = password;
+        this.userName = userName;
     }
 }

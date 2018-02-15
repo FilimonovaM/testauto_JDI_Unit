@@ -1,6 +1,7 @@
 package enums;
 
 public enum ColorsEnum {
+    DEFAULT_COLOR("Colors"),
     RED("Red"),
     GREEN("Green"),
     BLUE("Blue"),

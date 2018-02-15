@@ -1,6 +1,7 @@
 package enums;
 
 public enum OddsDigitsEnum {
+    DEFAULT_ODDS("1"),
     ONE("1"),
     THREE("3"),
     FIVE("5"),
