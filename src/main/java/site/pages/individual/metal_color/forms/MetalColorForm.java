@@ -66,7 +66,6 @@ public class MetalColorForm extends Form<MetalColorFormData> {
             vegetables.check(DEFAULT_VEGETABLE.text);
             for(String vegetable : metalColorFormData.vegetables){
                 vegetables.check(vegetable);
-                System.out.println(vegetable);
             }
         }
     }
