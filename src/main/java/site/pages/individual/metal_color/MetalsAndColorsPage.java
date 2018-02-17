@@ -6,8 +6,10 @@ import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.CommonPage;
 import site.pages.individual.metal_color.forms.MetalColorForm;
 import site.pages.individual.metal_color.sections.ResultSection;
+import utils.RawDataObject;
 
 public class MetalsAndColorsPage extends CommonPage {
+
     public ResultSection resultSection;
     MetalColorForm metalColorForm;
     MetalColorFormData metalColorFormData;
@@ -18,7 +20,7 @@ public class MetalsAndColorsPage extends CommonPage {
     }
 
     @Step
-    public void setNewData(String[] newData) {
+    public void setNewData(RawDataObject newData) {
         metalColorFormData = metalColorForm.setMetalColorFormData(new DataUpdate(newData));
     }
 
