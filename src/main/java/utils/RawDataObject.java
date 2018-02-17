@@ -7,6 +7,7 @@ public class RawDataObject {
     private String metals;
     private String[] vegetables;
 
+    //only getters for all args are located under this comment & nothing more//
     public int[] getSummary() {
         return summary;
     }
