@@ -21,10 +21,11 @@ public class DataUpdate {
     private static String[] elements;
     private static String[] vegetables;
 
-    public DataUpdate(){
+    public DataUpdate() {
     }
 
-    public DataUpdate(String odds, String even, String[] elementArr, String color, String metal, String[] vegetablesArr) {
+    public DataUpdate(String odds, String even, String[] elementArr, String color, String metal,
+                      String[] vegetablesArr) {
         oddsRadioButton = odds;
         evenRadioButton = even;
         elements = elementArr;
@@ -34,12 +35,12 @@ public class DataUpdate {
     }
 
     public DataUpdate(RawDataObject newData) {
-        oddsRadioButton = setOddsDigitValue(newData.summary);
-        evenRadioButton = setEvenDigitValue(newData.summary);
-        elements = setEvenElementsValue(newData.elements);
-        colorDropdown = setColorValue(newData.color);
-        metalDropdown = setMetalValue(newData.metals);
-        vegetables = setVegetablesValue(newData.vegetables);
+        oddsRadioButton = setOddsDigitValue(newData.getSummary());
+        evenRadioButton = setEvenDigitValue(newData.getSummary());
+        elements = setEvenElementsValue(newData.getElements());
+        colorDropdown = setColorValue(newData.getColor());
+        metalDropdown = setMetalValue(newData.getMetals());
+        vegetables = setVegetablesValue(newData.getVegetables());
     }
 
     public static final DataUpdate DEFAULT_DATA = new DataUpdate(
@@ -50,6 +51,7 @@ public class DataUpdate {
             SELEN.text,
             new String[]{CUCUMBER.text, TOMATO.text});
 
+    //only getters for all args are located under this comment & nothing more//
     public static String getOddsRadioButton() {
         return oddsRadioButton;
     }

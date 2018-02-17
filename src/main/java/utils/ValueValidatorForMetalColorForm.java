@@ -1,13 +1,9 @@
 package utils;
 
 import enums.ColorsEnum;
-import enums.ElementsEnum;
-import enums.VegetablesEnum;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static utils.OperationsWithData.stringToInt;
 
 public class ValueValidatorForMetalColorForm {
 

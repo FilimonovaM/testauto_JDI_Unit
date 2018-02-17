@@ -15,7 +15,7 @@ public class ResultSection extends Section {
         ResultListData resultListData = new ResultListData();
         String logOfSection = resultList.getValue();
         for (String line : resultListData.results) {
-            assert logOfSection.contains(line):"Wrong value of line for the result section: \n"+line;
+            assert logOfSection.contains(line) : "Wrong value of line for the result section: \n" + line;
         }
     }
 }

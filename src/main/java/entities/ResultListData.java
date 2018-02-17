@@ -30,6 +30,6 @@ public class ResultListData extends DataUpdate implements IResults {
                     getLog("Color: ", (getColorDropdown() == null) ? DEFAULT_COLOR.text : getColorDropdown()),
                     getLog("Metal: ", (getMetalDropdown() == null) ? DEFAULT_METAL.text : getMetalDropdown()),
                     getLog("Vegetables: ", (getVegetables() == null) ? new String[]{DEFAULT_VEGETABLE.text}
-                    : getVegetables())};
+                            : getVegetables())};
 
 }

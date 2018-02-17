@@ -7,7 +7,6 @@ import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
-
 import utils.RawDataObject;
 import utils.Reader;
 

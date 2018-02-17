@@ -65,7 +65,7 @@ public class MetalColorForm extends Form<MetalColorFormData> {
         if (DataUpdate.getVegetables() != null) {
             checkedVegetables.click();
             vegetables.check(DEFAULT_VEGETABLE.text);
-            for(String vegetable : metalColorFormData.vegetables){
+            for (String vegetable : metalColorFormData.vegetables) {
                 vegetables.check(vegetable);
             }
         }

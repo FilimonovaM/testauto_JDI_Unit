@@ -3,7 +3,7 @@ package entities;
 import com.epam.commons.DataClass;
 import enums.UserEnum;
 
-public class User extends DataClass{
+public class User extends DataClass {
 
     public String login;
     public String password;
