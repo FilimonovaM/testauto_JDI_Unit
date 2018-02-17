@@ -48,7 +48,8 @@ public class MetalsAndColorsPageTest extends TestNGBase {
 
         //3 Fill form Metals & Colors by data below:
         // " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
-        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(DEFAULT_DATA);
+        JDIFrameworkSite.metalsAndColorsPage.setNewData(DEFAULT_DATA);
+        JDIFrameworkSite.metalsAndColorsPage.checkMetalColorSection();
 
         //4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();

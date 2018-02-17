@@ -11,6 +11,7 @@ import site.JDIFrameworkSite;
 import utils.JsonFileReader;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
+import static entities.DataUpdate.DEFAULT_DATA;
 import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
 import static enums.MenuEnum.METALS_AND_COLORS;
 import static enums.MenuEnum.SERVICE;
@@ -54,7 +55,8 @@ public class MetalsColorsPageDDT extends TestNGBase {
         JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
 
         // 3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet .json
-        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(new DataUpdate(newData));
+        JDIFrameworkSite.metalsAndColorsPage.setNewData(newData);
+        JDIFrameworkSite.metalsAndColorsPage.checkMetalColorSection();
 
         //4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();

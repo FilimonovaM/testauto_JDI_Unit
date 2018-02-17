@@ -23,15 +23,15 @@ public class JsonFileReader {
                 .replace("\n", "").split("data_\\d"));
     }
 
-    public Object[][]parseJson(String[] lines){
-        Object[][] data= new Object[lines.length-1][5];
-        String []s;
-        for(int i = 0; i<data.length; i++){
-            s = lines[i+1].split("summary|elements|color|metals|vegetables");
-            for(int y = 0; y < 5; y++){
-                if(s.length!=0){
-                    data[i][y] = s[y+1];
-                }else {
+    public Object[][] parseJson(String[] lines) {
+        Object[][] data = new Object[lines.length - 1][5];
+        String[] s;
+        for (int i = 0; i < data.length; i++) {
+            s = lines[i + 1].split("summary|elements|color|metals|vegetables");
+            for (int y = 0; y < 5; y++) {
+                if (s.length != 0) {
+                    data[i][y] = s[y + 1];
+                } else {
                     data[i][y] = "";
                 }
             }

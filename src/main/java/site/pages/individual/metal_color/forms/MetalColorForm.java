@@ -40,11 +40,12 @@ public class MetalColorForm extends Form<MetalColorFormData> {
     private Button submit;
 
     public SummaryForm summaryForm;
+    private MetalColorFormData metalColorFormData;
 
-    MetalColorFormData metalColorFormData;
-
-    public void setMetalColorFormData(DataUpdate newData) {
+    @Step
+    public MetalColorFormData setMetalColorFormData(DataUpdate newData) {
         metalColorFormData = new MetalColorFormData(newData);
+        return metalColorFormData;
     }
 
     @Step

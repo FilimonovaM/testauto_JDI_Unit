@@ -19,6 +19,25 @@ public class DataUpdate {
     private static String[] elements;
     private static String[] vegetables;
 
+    public static final DataUpdate DEFAULT_DATA = new DataUpdate(new String[]{
+            THREE.text + EIGHT.text,
+            WATER.text + FIRE.text,
+            RED.text,
+            SELEN.text,
+            CUCUMBER.text + TOMATO.text});
+
+    public DataUpdate() {
+    }
+
+    public DataUpdate(String[] newData) {
+        oddsRadioButton = setOddsDigitValue(newData[0]);
+        evenRadioButton = setEvenDigitValue(newData[0]);
+        elements = setEvenElementsValue(newData[1]);
+        colorDropdown = setColorValue(newData[2]);
+        metalDropdown = setMetalValue(newData[3]);
+        vegetables = setVegetablesValue(newData[4]);
+    }
+
     public static String getOddsRadioButton() {
         return oddsRadioButton;
     }
@@ -41,24 +60,5 @@ public class DataUpdate {
 
     public static String[] getVegetables() {
         return vegetables;
-    }
-
-    public static final DataUpdate DEFAULT_DATA = new DataUpdate(new String[]{
-            THREE.text + EIGHT.text,
-            WATER.text + FIRE.text,
-            RED.text,
-            SELEN.text,
-            CUCUMBER.text + TOMATO.text});
-
-    public DataUpdate() {
-    }
-
-    public DataUpdate(String[] newData) {
-        oddsRadioButton = setOddsDigitValue(newData[0]);
-        evenRadioButton = setEvenDigitValue(newData[0]);
-        elements = setEvenElementsValue(newData[1]);
-        colorDropdown = setColorValue(newData[2]);
-        metalDropdown = setMetalValue(newData[3]);
-        vegetables = setVegetablesValue(newData[4]);
     }
 }
