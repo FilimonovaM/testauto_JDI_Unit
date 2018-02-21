@@ -22,8 +22,6 @@ public class Reader {
             Type token = new TypeToken<Map<String, RawDataObject>>() {{
             }}.getType();
             dataMap = new Gson().fromJson(jsonReader, token);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

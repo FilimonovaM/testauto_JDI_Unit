@@ -24,15 +24,9 @@ import static enums.UserEnum.PITER;
 public class MetalsColorsPageDDT extends TestNGBase {
 
     @DataProvider(name = "provider")
-    public Object[][] getDataFromJsonFile() {
+    public Object[] getDataFromJsonFile() {
         Map<String, RawDataObject> dataMap = Reader.readFile();
-        Object[][] dataArray = new Object[dataMap.size()][1];
-        Object[] values = dataMap.values().toArray();
-        Object[] keys = dataMap.keySet().toArray();
-        for (int i = 0; i < dataMap.size(); i++) {
-            dataArray[i][0] = values[i];
-        }
-        return dataArray;
+        return dataMap.values().toArray();
     }
 
     @BeforeClass(alwaysRun = true)
