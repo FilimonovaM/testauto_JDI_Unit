@@ -41,19 +41,25 @@ public class MetalColorForm extends Form<MetalColorFormData> {
 
     public SummaryForm summaryForm;
 
-    MetalColorFormData metalColorFormData;
+    // TODO you should not store the data in PO !!
+    private MetalColorFormData metalColorFormData;
 
-    public void setMetalColorFormData(DataUpdate newData) {
+    @Step
+    // TODO this method has no relation to PO
+    public MetalColorFormData setMetalColorFormData(DataUpdate newData) {
         metalColorFormData = new MetalColorFormData(newData);
+        return metalColorFormData;
     }
 
     @Step
+    // TODO this method will not 'check' anything !
     public void checkSummaryForm() {
         summaryForm.submit(metalColorFormData);
     }
 
     @Step
     public void checkElementsChecklist() {
+        // TODO you should encapsulate this behaviour in UI Object
         if (metalColorFormData.elements != null) {
             elements.check(metalColorFormData.elements);
         }
@@ -61,12 +67,12 @@ public class MetalColorForm extends Form<MetalColorFormData> {
 
     @Step
     public void checkVegetablesDropdown() {
+        // TODO you should encapsulate this behaviour in UI Object
         if (DataUpdate.getVegetables() != null) {
             checkedVegetables.click();
             vegetables.check(DEFAULT_VEGETABLE.text);
-            for(String vegetable : metalColorFormData.vegetables){
+            for (String vegetable : metalColorFormData.vegetables) {
                 vegetables.check(vegetable);
-                System.out.println(vegetable);
             }
         }
     }

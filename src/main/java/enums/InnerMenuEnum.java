@@ -1,6 +1,6 @@
 package enums;
 
-public enum InnerMenuEnum   {
+public enum InnerMenuEnum {
     SERVICE("Service"),
     SUPPORT("Support"),
     DATES("Dates"),

@@ -2,13 +2,15 @@ package hw2;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
-import entities.DataUpdate;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
-import utils.JsonFileReader;
+import utils.RawDataObject;
+import utils.Reader;
+
+import java.util.Map;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
@@ -21,11 +23,17 @@ import static enums.UserEnum.PITER;
 @Stories({"check \"Metals & Colors page functionality\""})
 public class MetalsColorsPageDDT extends TestNGBase {
 
-    @DataProvider
+    // TODO do you really need to return 2-dim array ?
+    @DataProvider(name = "provider")
     public Object[][] getDataFromJsonFile() {
-        JsonFileReader jsonFileReader = new JsonFileReader();
-        Object[][] objects = jsonFileReader.readFile();
-        return objects;
+        Map<String, RawDataObject> dataMap = Reader.readFile();
+        Object[][] dataArray = new Object[dataMap.size()][1];
+        Object[] values = dataMap.values().toArray();
+        Object[] keys = dataMap.keySet().toArray();
+        for (int i = 0; i < dataMap.size(); i++) {
+            dataArray[i][0] = values[i];
+        }
+        return dataArray;
     }
 
     @BeforeClass(alwaysRun = true)
@@ -36,27 +44,22 @@ public class MetalsColorsPageDDT extends TestNGBase {
         JDIFrameworkSite.indexPage.open();
     }
 
-    @BeforeMethod(alwaysRun = true)
-    public void preparePage() {
-        //1 LoginFunction on JDI site as User	user:Piter_Chailovskii
-        JDIFrameworkSite.indexPage.headerSection.login(PITER);
-    }
-
     @AfterMethod(alwaysRun = true)
     public void refreshPage() {
         JDIFrameworkSite.metalsAndColorsPage.headerSection.logout();
     }
 
-    // TODO you have to pass instance of the class that will be passed in
-    @Test(dataProvider = "getDataFromJsonFile")
-    public void checkPageFunctionality(String[] newData) {
+    @Test(dataProvider = "provider")
+    public void checkPageFunctionality(RawDataObject newData) {
+        //1 LoginFunction on JDI site as User	user:Piter_Chailovskii
+        JDIFrameworkSite.indexPage.headerSection.login(PITER);
 
-        //2 Open Metals & Colors page by Header menu
+        // 2 Open Metals & Colors page by Header menu
         JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
 
-        // TODO you should have only ONE class for this purpose, stop doing wrappers, it is not make a sense
         // 3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet .json
-        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(new DataUpdate(newData));
+        JDIFrameworkSite.metalsAndColorsPage.setNewData(newData);
+        JDIFrameworkSite.metalsAndColorsPage.checkMetalColorSection();
 
         //4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();

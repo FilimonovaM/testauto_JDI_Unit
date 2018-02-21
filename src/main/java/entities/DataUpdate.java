@@ -1,5 +1,7 @@
 package entities;
 
+import utils.RawDataObject;
+
 import static enums.ColorsEnum.RED;
 import static enums.ElementsEnum.FIRE;
 import static enums.ElementsEnum.WATER;
@@ -10,9 +12,13 @@ import static enums.VegetablesEnum.CUCUMBER;
 import static enums.VegetablesEnum.TOMATO;
 import static utils.ValueValidatorForMetalColorForm.*;
 
-// TODO lombok !
+// TODO What the point of this ???
+// TODO I dont get it, what is the reason why you created THREE classes of this ??
+// TODO Just imagine that you have more than one this sort of Data...
 public class DataUpdate {
 
+    // TODO static fields in this class ?? Really ?
+    // TODO You can have only ONE instance of it in all entire program, but you have a lot of data sets
     private static String oddsRadioButton;
     private static String evenRadioButton;
     private static String colorDropdown;
@@ -20,6 +26,39 @@ public class DataUpdate {
     private static String[] elements;
     private static String[] vegetables;
 
+    public DataUpdate() {
+    }
+
+    // TODO it war really bad to set up fields in two different constructors...
+    // TODO you can use 'this'
+    public DataUpdate(String odds, String even, String[] elementArr, String color, String metal,
+                      String[] vegetablesArr) {
+        oddsRadioButton = odds;
+        evenRadioButton = even;
+        elements = elementArr;
+        colorDropdown = color;
+        metalDropdown = metal;
+        vegetables = vegetablesArr;
+    }
+
+    public DataUpdate(RawDataObject newData) {
+        oddsRadioButton = setOddsDigitValue(newData.getSummary());
+        evenRadioButton = setEvenDigitValue(newData.getSummary());
+        elements = setEvenElementsValue(newData.getElements());
+        colorDropdown = setColorValue(newData.getColor());
+        metalDropdown = setMetalValue(newData.getMetals());
+        vegetables = setVegetablesValue(newData.getVegetables());
+    }
+
+    public static final DataUpdate DEFAULT_DATA = new DataUpdate(
+            THREE.text,
+            EIGHT.text,
+            new String[]{WATER.text, FIRE.text},
+            RED.text,
+            SELEN.text,
+            new String[]{CUCUMBER.text, TOMATO.text});
+
+    //only getters for all args are located under this comment & nothing more//
     public static String getOddsRadioButton() {
         return oddsRadioButton;
     }
@@ -42,24 +81,5 @@ public class DataUpdate {
 
     public static String[] getVegetables() {
         return vegetables;
-    }
-
-    public static final DataUpdate DEFAULT_DATA = new DataUpdate(new String[]{
-            THREE.text + EIGHT.text,
-            WATER.text + FIRE.text,
-            RED.text,
-            SELEN.text,
-            CUCUMBER.text + TOMATO.text});
-
-    public DataUpdate() {
-    }
-
-    public DataUpdate(String[] newData) {
-        oddsRadioButton = setOddsDigitValue(newData[0]);
-        evenRadioButton = setEvenDigitValue(newData[0]);
-        elements = setEvenElementsValue(newData[1]);
-        colorDropdown = setColorValue(newData[2]);
-        metalDropdown = setMetalValue(newData[3]);
-        vegetables = setVegetablesValue(newData[4]);
     }
 }
