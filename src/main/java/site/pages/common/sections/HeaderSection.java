@@ -1,5 +1,6 @@
 package site.pages.common.sections;
 
+import com.codeborne.selenide.Condition;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
@@ -36,8 +37,9 @@ public class HeaderSection extends Section {
         profilePhoto.click();
         if(loginForm.isDisplayed()){
             loginForm.loginAs(data);
+            userName.should(Condition.text(data.getUserName()));
         }
-//        userName.should(Condition.text(newUser.userName));
+
     }
 
     public void logout() {
