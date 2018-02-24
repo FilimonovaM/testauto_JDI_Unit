@@ -16,7 +16,7 @@ import static entities.UserFormData.PITER_CHAILOVSKI;
 import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
 import static enums.MenuEnum.METALS_AND_COLORS;
 import static enums.MenuEnum.SERVICE;
-import static entities.MetalColorData.DEFAULT_DATA;
+import static entities.MetalsColors.DEFAULT_DATA;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})

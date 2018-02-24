@@ -4,21 +4,21 @@ import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.CommonPage;
 import site.pages.individual.metal_color.forms.MetalColorForm;
 import site.pages.individual.metal_color.sections.ResultSection;
-import entities.MetalColorData;
+import entities.MetalsColors;
 
 public class MetalsAndColorsPage extends CommonPage {
 
     private ResultSection resultSection;
-    private MetalColorForm metalColorForm;
+    public MetalColorForm metalColorForm;
 
 
     @Step
-    public void setNewDataToMetalColorForm(MetalColorData newData) {
+    public void setNewDataToMetalColorForm(MetalsColors newData) {
         metalColorForm.submit(newData);
     }
 
     @Step
-    public void checkResultSection(MetalColorData newData) {
+    public void checkResultSection(MetalsColors newData) {
         resultSection.checkResultSet(newData);
     }
 }

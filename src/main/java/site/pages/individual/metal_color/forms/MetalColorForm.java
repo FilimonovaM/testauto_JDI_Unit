@@ -11,11 +11,11 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.object
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
-import entities.MetalColorData;
+import entities.MetalsColors;
 
 import static enums.VegetablesEnum.DEFAULT_VEGETABLE;
 
-public class MetalColorForm extends Form<MetalColorData> {
+public class MetalColorForm extends Form<MetalsColors> {
 
     @Css(".vertical-group label")
     private CheckList elements;
@@ -41,7 +41,7 @@ public class MetalColorForm extends Form<MetalColorData> {
     private SummaryForm summaryForm;
 
     @Step
-    public void submit(MetalColorData data) {
+    public void submit(MetalsColors data) {
 
         summaryForm.submit(data);
 

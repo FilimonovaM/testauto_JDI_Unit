@@ -1,5 +1,8 @@
 package entities;
 
+
+// TODO what the strange name ?
+// TODO Just User was not enough ?
 public class UserFormData {
 
     private String login;

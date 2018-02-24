@@ -10,7 +10,7 @@ import static enums.VegetablesEnum.CUCUMBER;
 import static enums.VegetablesEnum.TOMATO;
 import static utils.ValueValidatorForMetalColorForm.*;
 
-public class MetalColorData {
+public class MetalsColors {
     private int[] summary;
     private String[] elements;
     private String color;
@@ -18,14 +18,14 @@ public class MetalColorData {
     private String[] vegetables;
 
 
-    public static final MetalColorData DEFAULT_DATA = new MetalColorData(
+    public static final MetalsColors DEFAULT_DATA = new MetalsColors(
             new int[]{THREE.digit, EIGHT.digit},
             new String[]{WATER.text, FIRE.text},
             RED.text,
             SELEN.text,
             new String[]{CUCUMBER.text, TOMATO.text});
 
-    private MetalColorData(int[] summary, String[] elements, String color, String metals, String[] vegetables) {
+    private MetalsColors(int[] summary, String[] elements, String color, String metals, String[] vegetables) {
         this.summary = summary;
         this.elements = elements;
         this.color = color;

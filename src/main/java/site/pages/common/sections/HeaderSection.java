@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.forms.LoginForm;
 
+// TODO do you have a chance to format your code ???
 public class HeaderSection extends Section {
 
     @FindBy(css = ".profile-photo>span")
@@ -39,7 +40,6 @@ public class HeaderSection extends Section {
             loginForm.loginAs(data);
             userName.should(Condition.text(data.getUserName()));
         }
-
     }
 
     public void logout() {
@@ -54,6 +54,7 @@ public class HeaderSection extends Section {
     }
     @Step
     public void selectOnMenu(String firstLevelOfMenu, String optionOfInnerLevelOfMenu) {
+        // TODO this should not be here, encapsulate it in Menu class...
         menuHeader.select(firstLevelOfMenu);
         System.out.println(menuHeader.getOptionsAsText());
         if (optionOfInnerLevelOfMenu != null && (serviceMenu.isDisplayed())) {

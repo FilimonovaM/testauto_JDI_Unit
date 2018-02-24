@@ -2,8 +2,12 @@ package utils;
 
 import enums.ColorsEnum;
 
+// TODO what is this ???
+// TODO why did you do this ? To avoid the last data set ?
+// TODO I told you that test CAN be failed in this case, cause application works incorrectly !!
 public class ValueValidatorForMetalColorForm {
 
+    // TODO a lot of code duplication
     public static String validatedOdds(int[] oddsValue) {
         if (oddsValue.length == 2) {
             return (oddsValue[0] % 2 != 0) ? String.valueOf(oddsValue[0]) :

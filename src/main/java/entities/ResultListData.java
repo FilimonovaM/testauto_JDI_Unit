@@ -17,7 +17,7 @@ public class ResultListData implements IResults {
         return newRasultLine(name, values);
     }
 
-    public String[] getResult(MetalColorData data) {
+    public String[] getResult(MetalsColors data) {
         resultOfCalculation = (data.getOddsRadioButton() != null && data.getEvenRadioButton() != null) ?
                 (Integer.toString(stringToInt(data.getOddsRadioButton()) +
                         stringToInt(data.getEvenRadioButton()))) : DEFAULT_SUM.text;
