@@ -1,7 +1,7 @@
 package enums;
 
 public enum UserEnum {
-    PITER("epam","1234","PITER CHAILOVSKI");
+    PITER("epam", "1234", "PITER CHAILOVSKI");
 
     public final String login;
     public final String password;

@@ -36,6 +36,9 @@ public class HeaderSection extends Section {
     @Step
     public void login(UserEnum userEnum) {
         profilePhoto.click();
+        // TODO OH MY !!!! Do you really need ENUM and CLASS of user ?
+        // TODO could you please chose one of them...
+        // TODO do you read my comment ?
         loginForm.loginAs(new User(userEnum));
         userName.should(Condition.text(userEnum.userName));
     }

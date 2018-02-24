@@ -7,7 +7,7 @@ public class OperationsWithData {
             return Integer.parseInt(digit);
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            throw new NullPointerException();
+            throw new RuntimeException();
         }
     }
 }

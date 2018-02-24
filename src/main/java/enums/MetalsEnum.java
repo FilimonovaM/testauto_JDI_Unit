@@ -1,6 +1,7 @@
 package enums;
 
 public enum MetalsEnum {
+    DEFAULT_METAL("Col"),
     SELEN("Selen"),
     GOLD("Gold"),
     SILVER("Silver"),

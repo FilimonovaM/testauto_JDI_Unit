@@ -12,7 +12,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static entities.DataUpdate.DEFAULT;
+import static entities.DataUpdate.DEFAULT_DATA;
 import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
 import static enums.MenuEnum.METALS_AND_COLORS;
 import static enums.MenuEnum.SERVICE;
@@ -45,11 +45,11 @@ public class MetalsAndColorsPageTest extends TestNGBase {
 
         //2 Open Metals & Colors page by Header menu		Metals & Colors page is opened
         JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
-        JDIFrameworkSite.metalsAndColorsPage.isOpened();
 
         //3 Fill form Metals & Colors by data below:
         // " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
-        JDIFrameworkSite.metalsAndColorsPage.metalColorSection.checkMetalColorSection(DEFAULT);
+        JDIFrameworkSite.metalsAndColorsPage.setNewData(DEFAULT_DATA);
+        JDIFrameworkSite.metalsAndColorsPage.checkMetalColorSection();
 
         //4 Result section contains certain data
         JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();

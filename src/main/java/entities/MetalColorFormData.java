@@ -11,12 +11,14 @@ public class MetalColorFormData extends DataClass {
     public String[] elements;
     public String[] vegetables;
 
+    // TODO Do you have a chance to read IDEA warning ??
+    // TODO this actions is completely prohibited !
     public MetalColorFormData(DataUpdate newData) {
-        this.oddsRadioButton = newData.oddsRadioButton;
-        this.evenRadioButton = newData.evenRadioButton;
-        this.colorDropdown = newData.colorDropdown;
-        this.metalDropdown = newData.metalDropdown;
-        this.elements = newData.elements;
-        this.vegetables = newData.vegetables;
+        this.oddsRadioButton = newData.getOddsRadioButton();
+        this.evenRadioButton = newData.getEvenRadioButton();
+        this.colorDropdown = newData.getColorDropdown();
+        this.metalDropdown = newData.getMetalDropdown();
+        this.elements = newData.getElements();
+        this.vegetables = newData.getVegetables();
     }
 }
