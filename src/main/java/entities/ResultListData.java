@@ -8,30 +8,30 @@ import static enums.MetalsEnum.DEFAULT_METAL;
 import static enums.VegetablesEnum.DEFAULT_VEGETABLE;
 import static utils.OperationsWithData.stringToInt;
 
-public class ResultListData extends DataUpdate implements IResults {
+public class ResultListData implements IResults {
+
+    private String resultOfCalculation;
 
     @Override
     public String getLog(String name, String... values) {
-        return replaceLine(name, values);
+        return newRasultLine(name, values);
     }
 
-    private String resultOfCalculation = (getOddsRadioButton() != null && getEvenRadioButton() != null) ?
-            (Integer.toString(stringToInt(getOddsRadioButton()) +
-                    stringToInt(getEvenRadioButton()))) : DEFAULT_SUM.text;
-
-    public String[] results = (getElements() == null) ?
-            new String[]{
-                    getLog("Summary: ", resultOfCalculation),
-                    getLog("Color: ", (getColorDropdown() == null) ? DEFAULT_COLOR.text : getColorDropdown()),
-                    getLog("Metal: ", (getMetalDropdown() == null) ? DEFAULT_METAL.text : getMetalDropdown()),
-                    getLog("Vegetables: ", (getVegetables() == null) ? new String[]{DEFAULT_VEGETABLE.text}
-                            : getVegetables())} :
-            new String[]{
-                    getLog("Summary: ", resultOfCalculation),
-                    getLog("Elements: ", getElements()),
-                    getLog("Color: ", (getColorDropdown() == null) ? DEFAULT_COLOR.text : getColorDropdown()),
-                    getLog("Metal: ", (getMetalDropdown() == null) ? DEFAULT_METAL.text : getMetalDropdown()),
-                    getLog("Vegetables: ", (getVegetables() == null) ? new String[]{DEFAULT_VEGETABLE.text}
-                            : getVegetables())};
-
+    public String[] getResult(MetalsColors data) {
+        resultOfCalculation = (data.getOddsRadioButton() != null && data.getEvenRadioButton() != null) ?
+                (Integer.toString(stringToInt(data.getOddsRadioButton()) +
+                        stringToInt(data.getEvenRadioButton()))) : DEFAULT_SUM.text;
+        return (data.getElements() == null) ?
+                new String[]{getLog("Summary: ", resultOfCalculation),
+                        getLog("Color: ", (data.getColor() == null) ? DEFAULT_COLOR.text : data.getColor()),
+                        getLog("Metal: ", (data.getMetals() == null) ? DEFAULT_METAL.text : data.getMetals()),
+                        getLog("Vegetables: ", (data.getVegetables() == null) ? new String[]{DEFAULT_VEGETABLE.text}
+                                : data.getVegetables())} :
+                new String[]{getLog("Summary: ", resultOfCalculation),
+                        getLog("Elements: ", data.getElements()),
+                        getLog("Color: ", (data.getColor() == null) ? DEFAULT_COLOR.text : data.getColor()),
+                        getLog("Metal: ", (data.getMetals() == null) ? DEFAULT_METAL.text : data.getMetals()),
+                        getLog("Vegetables: ", (data.getVegetables() == null) ? new String[]{DEFAULT_VEGETABLE.text}
+                                : data.getVegetables())};
+    }
 }

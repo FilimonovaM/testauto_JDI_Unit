@@ -7,16 +7,16 @@ import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
-import utils.RawDataObject;
+import entities.MetalsColors;
 import utils.Reader;
 
 import java.util.Map;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
+import static entities.UserFormData.PITER_CHAILOVSKI;
 import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
 import static enums.MenuEnum.METALS_AND_COLORS;
 import static enums.MenuEnum.SERVICE;
-import static enums.UserEnum.PITER;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
@@ -25,15 +25,9 @@ public class MetalsColorsPageDDT extends TestNGBase {
 
     // TODO do you really need to return 2-dim array ?
     @DataProvider(name = "provider")
-    public Object[][] getDataFromJsonFile() {
-        Map<String, RawDataObject> dataMap = Reader.readFile();
-        Object[][] dataArray = new Object[dataMap.size()][1];
-        Object[] values = dataMap.values().toArray();
-        Object[] keys = dataMap.keySet().toArray();
-        for (int i = 0; i < dataMap.size(); i++) {
-            dataArray[i][0] = values[i];
-        }
-        return dataArray;
+    public Object[] getDataFromJsonFile() {
+        Map<String, MetalsColors> dataMap = Reader.readFile();
+        return dataMap.values().toArray();
     }
 
     @BeforeClass(alwaysRun = true)
@@ -50,21 +44,21 @@ public class MetalsColorsPageDDT extends TestNGBase {
     }
 
     @Test(dataProvider = "provider")
-    public void checkPageFunctionality(RawDataObject newData) {
-        //1 LoginFunction on JDI site as User	user:Piter_Chailovskii
-        JDIFrameworkSite.indexPage.headerSection.login(PITER);
+    public void checkPageFunctionality(MetalsColors metalsColors) {
+        //1 LoginFunction on JDI site as UserFormData	user:Piter_Chailovskii
+        JDIFrameworkSite.indexPage.headerSection.login(PITER_CHAILOVSKI);
 
         // 2 Open Metals & Colors page by Header menu
         JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
 
-        // 3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet .json
-        JDIFrameworkSite.metalsAndColorsPage.setNewData(newData);
-        JDIFrameworkSite.metalsAndColorsPage.checkMetalColorSection();
+        // 3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet.json
+        JDIFrameworkSite.metalsAndColorsPage.metalColorForm.submit(metalsColors);
 
         //4 Result section contains certain data
-        JDIFrameworkSite.metalsAndColorsPage.resultSection.checkResultSet();
+        JDIFrameworkSite.metalsAndColorsPage.checkResultSection(metalsColors);
 
         //5 Extra Level Of Menu
+        // TODO Two different enums ? Really ? You have to use only ONE enum for this purpose.
         JDIFrameworkSite.metalsAndColorsPage.headerSection.selectOnMenu(SERVICE.page, TABLE_WITH_PAGES.option);
     }
 }

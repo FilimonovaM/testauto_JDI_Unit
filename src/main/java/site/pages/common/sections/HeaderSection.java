@@ -6,13 +6,13 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
-import entities.User;
+import entities.UserFormData;
 import enums.InnerMenuEnum;
-import enums.UserEnum;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.forms.LoginForm;
 
+// TODO do you have a chance to format your code ???
 public class HeaderSection extends Section {
 
     @FindBy(css = ".profile-photo>span")
@@ -34,13 +34,12 @@ public class HeaderSection extends Section {
     private Menu<InnerMenuEnum> serviceMenu;
 
     @Step
-    public void login(UserEnum userEnum) {
+    public void login(UserFormData data) {
         profilePhoto.click();
-        // TODO OH MY !!!! Do you really need ENUM and CLASS of user ?
-        // TODO could you please chose one of them...
-        // TODO do you read my comment ?
-        loginForm.loginAs(new User(userEnum));
-        userName.should(Condition.text(userEnum.userName));
+        if(loginForm.isDisplayed()){
+            loginForm.loginAs(data);
+            userName.should(Condition.text(data.getUserName()));
+        }
     }
 
     public void logout() {
@@ -55,6 +54,7 @@ public class HeaderSection extends Section {
     }
     @Step
     public void selectOnMenu(String firstLevelOfMenu, String optionOfInnerLevelOfMenu) {
+        // TODO this should not be here, encapsulate it in Menu class...
         menuHeader.select(firstLevelOfMenu);
         System.out.println(menuHeader.getOptionsAsText());
         if (optionOfInnerLevelOfMenu != null && (serviceMenu.isDisplayed())) {
