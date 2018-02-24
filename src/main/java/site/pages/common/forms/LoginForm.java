@@ -4,17 +4,17 @@ import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.TextField;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
-import entities.User;
+import entities.UserFormData;
 
 
-public class LoginForm extends Form<User> {
+public class LoginForm extends Form<UserFormData> {
 
     @Css("#Login")
-    private TextField login;
+    public TextField login;
 
     @Css("#Password")
-    private TextField password;
+    public TextField password;
 
     @Css("[type=submit]")
-    private Button enter;
+    public Button enter;
 }

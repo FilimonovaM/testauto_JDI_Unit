@@ -9,14 +9,13 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
-import entities.DataUpdate;
-import entities.MetalColorFormData;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
+import entities.MetalColorData;
 
 import static enums.VegetablesEnum.DEFAULT_VEGETABLE;
 
-public class MetalColorForm extends Form<MetalColorFormData> {
+public class MetalColorForm extends Form<MetalColorData> {
 
     @Css(".vertical-group label")
     private CheckList elements;
@@ -25,10 +24,10 @@ public class MetalColorForm extends Form<MetalColorFormData> {
             jlist = @JFindBy(css = "li"),
             jvalue = @JFindBy(css = ".filter-option")
     )
-    private Dropdown colorDropdown;
+    private Dropdown color;
 
     @FindBy(css = "[type='text']")
-    private TextField metalDropdown;
+    private TextField metals;
 
     @FindBy(css = "#salad-dropdown button")
     private Label checkedVegetables;
@@ -39,35 +38,27 @@ public class MetalColorForm extends Form<MetalColorFormData> {
     @FindBy(css = "button#submit-button")
     private Button submit;
 
-    public SummaryForm summaryForm;
-    private MetalColorFormData metalColorFormData;
+    private SummaryForm summaryForm;
 
     @Step
-    public MetalColorFormData setMetalColorFormData(DataUpdate newData) {
-        metalColorFormData = new MetalColorFormData(newData);
-        return metalColorFormData;
-    }
-
-    @Step
-    public void checkSummaryForm() {
-        summaryForm.submit(metalColorFormData);
-    }
-
-    @Step
-    public void checkElementsChecklist() {
-        if (metalColorFormData.elements != null) {
-            elements.check(metalColorFormData.elements);
+    public void submit(MetalColorData data) {
+        summaryForm.submit(data);
+        if (data.getElements() != null) {
+            elements.check(data.getElements());
         }
-    }
-
-    @Step
-    public void checkVegetablesDropdown() {
-        if (DataUpdate.getVegetables() != null) {
+        if (data.getColor() != null) {
+            color.select(data.getColor());
+        }
+        if (data.getMetals() != null) {
+            metals.setValue(data.getMetals());
+        }
+        if (data.getVegetables() != null) {
             checkedVegetables.click();
             vegetables.check(DEFAULT_VEGETABLE.text);
-            for (String vegetable : metalColorFormData.vegetables) {
+            for (String vegetable : data.getVegetables()) {
                 vegetables.check(vegetable);
             }
         }
+        submit.click();
     }
 }

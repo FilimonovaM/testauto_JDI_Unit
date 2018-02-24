@@ -2,15 +2,17 @@ package entities.interfaces;
 
 public interface IResults {
 
-    public String getLog(String name, String... values);
+    String getLog(String name, String... values);
 
-    default String replaceLine(String name, String... values) {
-        StringBuffer sb = new StringBuffer();
+    default String newRasultLine(String name, String... values) {
+        StringBuilder sb = new StringBuilder();
         sb.append(name);
-        for (String line : values) {
-            sb.append(line + ", ");
+        for (int i = 0; i < values.length; i++) {
+            sb.append(values[i]);
+            if (values.length > 1 && i < (values.length - 1)) {
+                sb.append(", ");
+            }
         }
-        sb.setLength(sb.length() - 2);
         return sb.toString();
     }
 }

@@ -1,14 +1,12 @@
 package site.pages.common.sections;
 
-import com.codeborne.selenide.Condition;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
-import entities.User;
+import entities.UserFormData;
 import enums.InnerMenuEnum;
-import enums.UserEnum;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.forms.LoginForm;
@@ -34,10 +32,12 @@ public class HeaderSection extends Section {
     private Menu<InnerMenuEnum> serviceMenu;
 
     @Step
-    public void login(UserEnum userEnum) {
+    public void login(UserFormData data) {
         profilePhoto.click();
-        loginForm.loginAs(new User(userEnum));
-        userName.should(Condition.text(userEnum.userName));
+        if(loginForm.isDisplayed()){
+            loginForm.loginAs(data);
+        }
+//        userName.should(Condition.text(newUser.userName));
     }
 
     public void logout() {

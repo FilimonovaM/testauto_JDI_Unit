@@ -5,16 +5,18 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import entities.ResultListData;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
+import entities.MetalColorData;
 
 public class ResultSection extends Section {
     @FindBy(css = ".results li")
     private TextList resultList;
 
     @Step
-    public void checkResultSet() {
-        ResultListData resultListData = new ResultListData();
+    public void checkResultSet(MetalColorData data) {
+        String[] expectedResult = new ResultListData().getResult(data);
         String logOfSection = resultList.getValue();
-        for (String line : resultListData.results) {
+        for (String line : expectedResult) {
+            System.out.println(line);
             assert logOfSection.contains(line) : "Wrong value of line for the result section: \n" + line;
         }
     }

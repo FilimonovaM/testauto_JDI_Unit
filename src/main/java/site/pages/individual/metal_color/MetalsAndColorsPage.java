@@ -1,39 +1,24 @@
 package site.pages.individual.metal_color;
 
-import entities.DataUpdate;
-import entities.MetalColorFormData;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.CommonPage;
 import site.pages.individual.metal_color.forms.MetalColorForm;
 import site.pages.individual.metal_color.sections.ResultSection;
-import utils.RawDataObject;
+import entities.MetalColorData;
 
 public class MetalsAndColorsPage extends CommonPage {
 
-    public ResultSection resultSection;
-    MetalColorForm metalColorForm;
-    MetalColorFormData metalColorFormData;
+    private ResultSection resultSection;
+    private MetalColorForm metalColorForm;
+
 
     @Step
-    public void setNewData(DataUpdate newData) {
-        metalColorFormData = metalColorForm.setMetalColorFormData(newData);
+    public void setNewDataToMetalColorForm(MetalColorData newData) {
+        metalColorForm.submit(newData);
     }
 
     @Step
-    public void setNewData(RawDataObject newData) {
-        metalColorFormData = metalColorForm.setMetalColorFormData(new DataUpdate(newData));
-    }
-
-    @Step
-    public void checkMetalColorSection() {
-        checkSettingNewValues();
-        metalColorForm.submit(metalColorFormData);
-    }
-
-    @Step
-    public void checkSettingNewValues() {
-        metalColorForm.checkSummaryForm();
-        metalColorForm.checkElementsChecklist();
-        metalColorForm.checkVegetablesDropdown();
+    public void checkResultSection(MetalColorData newData) {
+        resultSection.checkResultSet(newData);
     }
 }
