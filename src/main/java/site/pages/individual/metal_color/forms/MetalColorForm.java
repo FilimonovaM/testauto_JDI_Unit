@@ -42,7 +42,9 @@ public class MetalColorForm extends Form<MetalColorData> {
 
     @Step
     public void submit(MetalColorData data) {
+
         summaryForm.submit(data);
+
         if (data.getElements() != null) {
             elements.check(data.getElements());
         }
