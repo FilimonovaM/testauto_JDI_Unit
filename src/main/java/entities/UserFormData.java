@@ -6,6 +6,15 @@ public class UserFormData {
     private String password;
     private String userName;
 
+    private UserFormData(String login, String password, String userName) {
+        this.login = login;
+        this.password = password;
+        this.userName = userName;
+    }
+
+    public static UserFormData PITER_CHAILOVSKI = new UserFormData("epam", "1234",
+            "PITER CHAILOVSKI");
+
     public String getLogin() {
         return login;
     }
@@ -19,12 +28,5 @@ public class UserFormData {
     }
 
 
-    private UserFormData(String login, String password, String userName) {
-        this.login = login;
-        this.password = password;
-        this.userName = userName;
-    }
 
-    public static UserFormData PITER_CHAILOVSKI = new UserFormData("epam", "1234",
-            "PITER CHAILOVSKI");
 }
