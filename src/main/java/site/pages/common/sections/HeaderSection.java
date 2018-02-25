@@ -6,8 +6,7 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
-import entities.UserFormData;
-import enums.InnerMenuEnum;
+import entities.User;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.forms.LoginForm;
@@ -30,10 +29,10 @@ public class HeaderSection extends Section {
     private Menu<Enum> menuHeader;
 
     @JFindBy(css = ".open ul a")
-    private Menu<InnerMenuEnum> serviceMenu;
+    private Menu<Enum> serviceMenu;
 
     @Step
-    public void login(UserFormData data) {
+    public void login(User data) {
         profilePhoto.click();
         if(loginForm.isDisplayed()){
             loginForm.loginAs(data);
@@ -53,11 +52,11 @@ public class HeaderSection extends Section {
             System.out.println(menuHeader.getOptionsAsText());
     }
     @Step
-    public void selectOnMenu(String firstLevelOfMenu, String optionOfInnerLevelOfMenu) {
+    public void selectOnMenu(String firstLevelOfMenu, String secondLevelOfMenu) {
         menuHeader.select(firstLevelOfMenu);
         System.out.println(menuHeader.getOptionsAsText());
-        if (optionOfInnerLevelOfMenu != null && (serviceMenu.isDisplayed())) {
-            serviceMenu.clickOn(optionOfInnerLevelOfMenu);
+        if (secondLevelOfMenu != null && (serviceMenu.isDisplayed())) {
+            serviceMenu.clickOn(secondLevelOfMenu);
         }
     }
 }

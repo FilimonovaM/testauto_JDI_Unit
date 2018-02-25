@@ -1,18 +1,18 @@
 package entities;
 
-public class UserFormData {
+public class User {
 
     private String login;
     private String password;
     private String userName;
 
-    private UserFormData(String login, String password, String userName) {
+    private User(String login, String password, String userName) {
         this.login = login;
         this.password = password;
         this.userName = userName;
     }
 
-    public static UserFormData PITER_CHAILOVSKI = new UserFormData("epam", "1234",
+    public static User PITER_CHAILOVSKI = new User("epam", "1234",
             "PITER CHAILOVSKI");
 
     public String getLogin() {

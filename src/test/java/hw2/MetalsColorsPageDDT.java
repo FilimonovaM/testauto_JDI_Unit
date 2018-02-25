@@ -13,16 +13,17 @@ import utils.Reader;
 import java.util.Map;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static entities.UserFormData.PITER_CHAILOVSKI;
-import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
+import static entities.User.PITER_CHAILOVSKI;
 import static enums.MenuEnum.METALS_AND_COLORS;
 import static enums.MenuEnum.SERVICE;
+import static enums.MenuEnum.TABLE_WITH_PAGES;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
-@Stories({"check \"Metals & Colors page functionality\""})
+@Stories({"check \"Metals & Colors menuButton functionality\""})
 public class MetalsColorsPageDDT extends TestNGBase {
 
+    //I really don`t returning 2-dim array, it seen below.
     @DataProvider(name = "provider")
     public Object[] getDataFromJsonFile() {
         Map<String, MetalColorData> dataMap = Reader.readFile();
@@ -44,11 +45,11 @@ public class MetalsColorsPageDDT extends TestNGBase {
 
     @Test(dataProvider = "provider")
     public void checkPageFunctionality(MetalColorData newData) {
-        //1 LoginFunction on JDI site as UserFormData	user:Piter_Chailovskii
+        //1 LoginFunction on JDI site as User	user:Piter_Chailovskii
         JDIFrameworkSite.indexPage.headerSection.login(PITER_CHAILOVSKI);
 
-        // 2 Open Metals & Colors page by Header menu
-        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
+        // 2 Open Metals & Colors menuButton by Header menu
+        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.menuButton);
 
         // 3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet .json
         JDIFrameworkSite.metalsAndColorsPage.setNewDataToMetalColorForm(newData);
@@ -57,6 +58,6 @@ public class MetalsColorsPageDDT extends TestNGBase {
         JDIFrameworkSite.metalsAndColorsPage.checkResultSection(newData);
 
         //5 Extra Level Of Menu
-        JDIFrameworkSite.metalsAndColorsPage.headerSection.selectOnMenu(SERVICE.page, TABLE_WITH_PAGES.option);
+        JDIFrameworkSite.metalsAndColorsPage.headerSection.selectOnMenu(SERVICE.menuButton, TABLE_WITH_PAGES.menuButton);
     }
 }

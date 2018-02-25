@@ -8,7 +8,6 @@ import static enums.MetalsEnum.SELEN;
 import static enums.OddsDigitsEnum.THREE;
 import static enums.VegetablesEnum.CUCUMBER;
 import static enums.VegetablesEnum.TOMATO;
-import static utils.ValueValidatorForMetalColorForm.*;
 
 public class MetalColorData {
     private int[] summary;
@@ -34,26 +33,26 @@ public class MetalColorData {
     }
 
     public String getOddsRadioButton() {
-        return validatedOdds(summary);
+        return  String.valueOf(summary[0]);
     }
 
     public String getEvenRadioButton() {
-        return validatedEven(summary);
+        return  String.valueOf(summary[1]);
     }
 
     public String[] getElements() {
-        return validatedElements(elements);
+        return elements;
     }
 
     public String getColor() {
-        return validatedColors(color);
+        return color;
     }
 
     public String getMetals() {
-        return validatedMetal(metals);
+        return metals;
     }
 
     public String[] getVegetables() {
-        return validatedVegetables(vegetables);
+        return vegetables;
     }
 }

@@ -12,15 +12,15 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static entities.UserFormData.PITER_CHAILOVSKI;
-import static enums.InnerMenuEnum.TABLE_WITH_PAGES;
+import static entities.User.PITER_CHAILOVSKI;
 import static enums.MenuEnum.METALS_AND_COLORS;
 import static enums.MenuEnum.SERVICE;
 import static entities.MetalColorData.DEFAULT_DATA;
+import static enums.MenuEnum.TABLE_WITH_PAGES;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})
-@Stories({"check \"Metals & Colors page functionality\""})
+@Stories({"check \"Metals & Colors menuButton functionality\""})
 public class MetalsAndColorsPageTest extends TestNGBase {
 
     @BeforeClass(alwaysRun = true)
@@ -43,8 +43,8 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         //1 Piter_Chailovskii is logged in
         JDIFrameworkSite.indexPage.headerSection.login(PITER_CHAILOVSKI);
 
-        //2 Open Metals & Colors page by Header menu		Metals & Colors page is opened
-        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.page);
+        //2 Open Metals & Colors menuButton by Header menu		Metals & Colors menuButton is opened
+        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.menuButton);
 
         //3 Fill form Metals & Colors by data below:
         // " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
@@ -54,6 +54,6 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         JDIFrameworkSite.metalsAndColorsPage.checkResultSection(DEFAULT_DATA);
 
         //5 Extra Level Of Menu
-        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(SERVICE.page, TABLE_WITH_PAGES.option);
+        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(SERVICE.menuButton, TABLE_WITH_PAGES.menuButton);
     }
 }

@@ -4,11 +4,17 @@ public enum MenuEnum {
     HOME("Home"),
     CONTACT_FORM("Contact form"),
     SERVICE("Service"),
-    METALS_AND_COLORS("Metals & Colors");
+    METALS_AND_COLORS("Metals & Colors"),
+    SUPPORT("Support"),
+    DATES("Dates"),
+    COMPLEX_TABLE("Complex Table "),
+    SIMPLE_TABLE("Simple Table "),
+    TABLE_WITH_PAGES("Table with pages"),
+    DIFFERENT_ELEMENTS("Different elements");
 
-    public final String page;
+    public final String menuButton;
 
     MenuEnum(String page) {
-        this.page = page;
+        this.menuButton = page;
     }
 }
