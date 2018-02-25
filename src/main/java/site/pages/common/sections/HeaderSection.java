@@ -26,10 +26,10 @@ public class HeaderSection extends Section {
     private LoginForm loginForm;
 
     @JFindBy (css = "[role='navigation']>.m-l8 li a")
-    private Menu<Enum> menuHeader;
+    private Menu menuHeader;
 
     @JFindBy(css = ".open ul a")
-    private Menu<Enum> serviceMenu;
+    private Menu serviceMenu;
 
     @Step
     public void login(User data) {
@@ -47,16 +47,10 @@ public class HeaderSection extends Section {
     }
 
     @Step
-    public void selectOnMenu(String firstLevelOfMenu) {
-        menuHeader.select(firstLevelOfMenu);
-            System.out.println(menuHeader.getOptionsAsText());
-    }
-    @Step
-    public void selectOnMenu(String firstLevelOfMenu, String secondLevelOfMenu) {
-        menuHeader.select(firstLevelOfMenu);
-        System.out.println(menuHeader.getOptionsAsText());
-        if (secondLevelOfMenu != null && (serviceMenu.isDisplayed())) {
-            serviceMenu.clickOn(secondLevelOfMenu);
+    public void selectOnMenu(String ... menuButtons) {
+        menuHeader.select(menuButtons[0]);
+        if(menuButtons.length==2 && serviceMenu.isDisplayed()){
+            serviceMenu.select(menuButtons[1]);
         }
     }
 }

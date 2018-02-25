@@ -42,24 +42,14 @@ public class MetalColorForm extends Form<MetalColorData> {
 
     @Step
     public void submit(MetalColorData data) {
-
         summaryForm.submit(data);
-
-        if (data.getElements() != null) {
-            elements.check(data.getElements());
-        }
-        if (data.getColor() != null) {
-            color.select(data.getColor());
-        }
-        if (data.getMetals() != null) {
-            metals.setValue(data.getMetals());
-        }
-        if (data.getVegetables() != null) {
-            checkedVegetables.click();
-            vegetables.check(DEFAULT_VEGETABLE.text);
-            for (String vegetable : data.getVegetables()) {
-                vegetables.check(vegetable);
-            }
+        elements.check(data.getElements());
+        color.select(data.getColor());
+        metals.setValue(data.getMetals());
+        checkedVegetables.click();
+        vegetables.check(DEFAULT_VEGETABLE.text);
+        for (String vegetable : data.getVegetables()) {
+            vegetables.check(vegetable);
         }
         submit.click();
     }
