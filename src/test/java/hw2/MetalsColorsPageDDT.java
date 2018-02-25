@@ -47,7 +47,7 @@ public class MetalsColorsPageDDT extends TestNGBase {
         JDIFrameworkSite.indexPage.headerSection.login(PITER_CHAILOVSKI);
 
         // 2 Open Metals & Colors menuButton by Header menu
-        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.menuButton);
+        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS);
 
         // 3 Fill form Metals & Colors by data below:	 file : ex8_jdi_metalsColorsDataSet .json
         JDIFrameworkSite.metalsAndColorsPage.setNewDataToMetalColorForm(newData);
@@ -56,6 +56,6 @@ public class MetalsColorsPageDDT extends TestNGBase {
         JDIFrameworkSite.metalsAndColorsPage.checkResultSection(newData);
 
         //5 Extra Level Of Menu
-        JDIFrameworkSite.metalsAndColorsPage.headerSection.selectOnMenu(SERVICE.menuButton, TABLE_WITH_PAGES.menuButton);
+        JDIFrameworkSite.metalsAndColorsPage.headerSection.selectOnMenu(SERVICE, TABLE_WITH_PAGES);
     }
 }

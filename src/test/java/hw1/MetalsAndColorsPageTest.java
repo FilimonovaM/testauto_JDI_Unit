@@ -42,7 +42,7 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         JDIFrameworkSite.indexPage.headerSection.login(PITER_CHAILOVSKI);
 
         //2 Open Metals & Colors menuButton by Header menu		Metals & Colors menuButton is opened
-        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS.menuButton);
+        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(METALS_AND_COLORS);
 
         //3 Fill form Metals & Colors by data below:
         // " Summary: 3, 8  Elements: Water, Fire  Colors: Red  Metals: Selen  Vegetables: Cucumber,Tomato
@@ -52,6 +52,6 @@ public class MetalsAndColorsPageTest extends TestNGBase {
         JDIFrameworkSite.metalsAndColorsPage.checkResultSection(DEFAULT_DATA);
 
         //5 Extra Level Of Menu
-        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(SERVICE.menuButton, TABLE_WITH_PAGES.menuButton);
+        JDIFrameworkSite.indexPage.headerSection.selectOnMenu(SERVICE, TABLE_WITH_PAGES);
     }
 }

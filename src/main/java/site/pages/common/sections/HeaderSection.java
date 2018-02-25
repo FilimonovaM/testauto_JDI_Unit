@@ -7,6 +7,7 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
 import entities.User;
+import enums.MenuEnum;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.forms.LoginForm;
@@ -26,10 +27,10 @@ public class HeaderSection extends Section {
     private LoginForm loginForm;
 
     @JFindBy (css = "[role='navigation']>.m-l8 li a")
-    private Menu menuHeader;
+    private Menu<MenuEnum> menuHeader;
 
     @JFindBy(css = ".open ul a")
-    private Menu serviceMenu;
+    private Menu<MenuEnum> serviceMenu;
 
     @Step
     public void login(User data) {
@@ -47,10 +48,10 @@ public class HeaderSection extends Section {
     }
 
     @Step
-    public void selectOnMenu(String ... menuButtons) {
-        menuHeader.select(menuButtons[0]);
+    public void selectOnMenu(MenuEnum ... menuButtons) {
+        menuHeader.select(menuButtons[0].menuButton);
         if(menuButtons.length==2 && serviceMenu.isDisplayed()){
-            serviceMenu.select(menuButtons[1]);
+            serviceMenu.select(menuButtons[1].menuButton);
         }
     }
 }
