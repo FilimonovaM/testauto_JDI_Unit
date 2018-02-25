@@ -12,11 +12,9 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static entities.User.PITER_CHAILOVSKI;
-import static enums.MenuEnum.METALS_AND_COLORS;
-import static enums.MenuEnum.SERVICE;
 import static entities.MetalColorData.DEFAULT_DATA;
-import static enums.MenuEnum.TABLE_WITH_PAGES;
+import static entities.User.PITER_CHAILOVSKI;
+import static enums.MenuEnum.*;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})

@@ -2,21 +2,19 @@ package hw2;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import entities.MetalColorData;
 import listeners.AllureAttachmentListeners;
 import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import site.JDIFrameworkSite;
-import entities.MetalColorData;
 import utils.Reader;
 
 import java.util.Map;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 import static entities.User.PITER_CHAILOVSKI;
-import static enums.MenuEnum.METALS_AND_COLORS;
-import static enums.MenuEnum.SERVICE;
-import static enums.MenuEnum.TABLE_WITH_PAGES;
+import static enums.MenuEnum.*;
 
 @Listeners(AllureAttachmentListeners.class)
 @Features({"JDI test suite"})

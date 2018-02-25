@@ -1,10 +1,10 @@
 package site.pages.individual.metal_color;
 
+import entities.MetalColorData;
 import ru.yandex.qatools.allure.annotations.Step;
 import site.pages.common.CommonPage;
 import site.pages.individual.metal_color.forms.MetalColorForm;
 import site.pages.individual.metal_color.sections.ResultSection;
-import entities.MetalColorData;
 
 public class MetalsAndColorsPage extends CommonPage {
 
